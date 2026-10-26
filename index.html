@@ -40,10 +40,24 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
 #ddc .ddc-c-blue{color:var(--blue);}
 
 /* hero */
-#ddc .ddc-hero{padding:56px 0 8px;}
-#ddc .ddc-hero h1{font-size:clamp(32px,6.4vw,52px);line-height:1.22;font-weight:800;letter-spacing:-.03em;margin:18px 0 18px;text-wrap:balance;}
-#ddc .ddc-hero p{color:var(--sub);font-size:16px;max-width:620px;margin-bottom:22px;}
+#ddc .ddc-hero{padding:56px 0 8px;display:grid;grid-template-columns:1.15fr 1fr;gap:36px;align-items:center;}
+#ddc .ddc-hero h1{font-size:clamp(32px,5.6vw,48px);line-height:1.22;font-weight:800;letter-spacing:-.03em;margin:18px 0 18px;text-wrap:balance;}
+#ddc .ddc-hero p{color:var(--sub);font-size:16px;max-width:520px;margin-bottom:24px;}
 #ddc .ddc-hero p b{color:var(--navy);}
+#ddc .ddc-cta{display:inline-flex;align-items:center;height:52px;padding:0 24px;border-radius:12px;background:var(--navy);color:#fff!important;font-weight:700;font-size:16px;transition:background .15s;}
+#ddc .ddc-cta:hover{background:var(--blue-d);}
+#ddc .ddc-hero-demo{background:var(--navy);border-radius:18px;padding:22px;box-shadow:0 18px 40px -20px rgba(15,42,68,.45);}
+#ddc .ddc-demo-row{border-radius:12px;padding:16px 18px;}
+#ddc .ddc-demo-lb{display:block;font-size:12px;font-weight:700;margin-bottom:6px;}
+#ddc .ddc-demo-before{background:rgba(255,255,255,.08);}
+#ddc .ddc-demo-before .ddc-demo-lb{color:rgba(255,255,255,.55);}
+#ddc .ddc-demo-before p{color:rgba(255,255,255,.6);font-size:16px;text-decoration:line-through;margin:0;max-width:none;}
+#ddc .ddc-demo-arrow{text-align:center;color:var(--blue);font-weight:800;font-size:20px;line-height:1;padding:10px 0;}
+#ddc .ddc-demo-after{background:#fff;}
+#ddc .ddc-demo-after .ddc-demo-lb{color:var(--blue-d);}
+#ddc .ddc-demo-after p{color:var(--navy);font-size:clamp(19px,2.6vw,23px);font-weight:800;line-height:1.35;letter-spacing:-.02em;margin:0;max-width:none;}
+#ddc .ddc-hero-demo p,#ddc .ddc-hero-demo .ddc-dna{transition:opacity .25s;}
+#ddc .ddc-hero-demo.is-fade p,#ddc .ddc-hero-demo.is-fade .ddc-dna{opacity:0;}
 
 /* letter */
 #ddc .ddc-letter{padding:40px;margin-top:40px;font-size:16px;}
@@ -179,6 +193,8 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
 #ddc .ddc-links a{min-height:0;}
 }
 @media (max-width:640px){
+#ddc .ddc-hero{grid-template-columns:1fr;gap:28px;}
+#ddc .ddc-cta{width:100%;justify-content:center;}
 #ddc .ddc-four{grid-template-columns:1fr 1fr;}
 #ddc .ddc-letter{padding:26px 22px;}
 #ddc .ddc-row{flex-direction:column;}
@@ -189,7 +205,7 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
 #ddc .ddc-promo{padding:30px 24px;}
 }
 @media (max-width:480px){
-#ddc .ddc-hero{padding-top:40px;}
+#ddc .ddc-hero{padding-top:36px;}
 #ddc .ddc-top .ddc-handle{font-size:12px;padding:5px 11px;}
 }
 </style>
@@ -205,10 +221,24 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
   <div class="ddc-wrap">
     <!-- ① hero -->
     <section class="ddc-hero">
-      <span class="ddc-pill">릴스 떡상 후킹 변환기</span>
-      <h1>대충 만든 제목도<br><span class="ddc-c-blue" style="white-space:nowrap">떡상 후킹</span>으로 바꿔드립니다</h1>
-      <p>이탈은 <b>첫 화면 1초</b>에서 결정됩니다. 내가 만든 제목을 넣으면 <b>떡상 15공식</b>으로 점검하고, 가장 센 <b>TOP 5</b>부터 추천해드려요.</p>
-      <a class="ddc-tlink" href="#ddc-tool" data-scroll="ddc-tool">내 제목 바꿔보기 ↓</a>
+      <div class="ddc-hero-txt">
+        <span class="ddc-pill">릴스 떡상 후킹 변환기</span>
+        <h1>넘겨지던 제목,<br><span class="ddc-c-blue" style="white-space:nowrap">멈추는 후킹</span>으로</h1>
+        <p>릴스는 <b>첫 화면 1초</b>에 넘길지 말지 정해져요. 대충 만든 제목을 넣으면 <b>떡상 15공식</b>으로 점검하고, 가장 센 <b>TOP 5</b>부터 골라드려요.</p>
+        <a class="ddc-cta" href="#ddc-tool" data-scroll="ddc-tool">내 제목 넣어보기 ↓</a>
+      </div>
+      <div class="ddc-hero-demo" aria-hidden="true">
+        <div class="ddc-demo-row ddc-demo-before">
+          <span class="ddc-demo-lb">대충 만든 제목</span>
+          <p id="ddc-demo-b">호주 워홀 브이로그</p>
+        </div>
+        <div class="ddc-demo-arrow">↓</div>
+        <div class="ddc-demo-row ddc-demo-after">
+          <span class="ddc-demo-lb">떡상 후킹</span>
+          <p id="ddc-demo-a">워홀러가 가장 후회하는 것 1위</p>
+          <div class="ddc-dna" id="ddc-demo-t"><span class="ddc-mini">숫자</span><span class="ddc-mini">손실</span></div>
+        </div>
+      </div>
     </section>
 
     <!-- ② letter -->
@@ -835,6 +865,29 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
     this.textContent = open ? '15공식 전체 접기 ▴' : '15공식 전체 보기 ▾';
     this.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
+
+  /* 히어로 데모 — 카테고리별 전/후 예시를 돌려 보여줘요 */
+  var DEMO = [
+    ['호주 워홀 브이로그', '워홀러가 가장 후회하는 것 1위', ['숫자', '손실']],
+    ['다이어트 식단 기록', '3주 만에 5kg 뺀 식단, 딱 이것', ['숫자']],
+    ['월급 관리하는 방법', '적금이 답인 줄 알았는데요', ['반전']],
+    ['출근룩 코디 추천', '이 핏 입으면 키 5cm 손해예요', ['숫자', '손실']],
+    ['인스타 팔로워 늘리는 팁', '매일 올릴수록 안 크는 이유', ['반전']]
+  ];
+  (function () {
+    var box = root.querySelector('.ddc-hero-demo'), n = 0;
+    if (!box) return;
+    setInterval(function () {
+      n = (n + 1) % DEMO.length;
+      box.classList.add('is-fade');
+      setTimeout(function () {
+        $('ddc-demo-b').textContent = DEMO[n][0];
+        $('ddc-demo-a').textContent = DEMO[n][1];
+        $('ddc-demo-t').innerHTML = DEMO[n][2].map(function (t) { return '<span class="ddc-mini">' + t + '</span>'; }).join('');
+        box.classList.remove('is-fade');
+      }, 250);
+    }, 2800);
+  })();
 
   /* 시작 — 예시 결과 미리 보여주기 */
   renderFormulaIntro();
