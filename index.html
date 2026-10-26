@@ -59,12 +59,16 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
 #ddc .ddc-group{margin-bottom:28px;}
 #ddc .ddc-group-h{font-weight:700;font-size:16px;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
 #ddc .ddc-group-h small{color:var(--sub);font-weight:500;font-size:13px;}
-#ddc .ddc-fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-#ddc .ddc-fcard{padding:18px;}
-#ddc .ddc-fcard .ddc-pill{height:26px;font-size:12px;padding:0 10px;}
+#ddc .ddc-fcols{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px;}
+#ddc .ddc-fcol{padding:18px 18px 8px;}
+#ddc .ddc-fcol-h{font-weight:700;font-size:15px;margin-bottom:8px;}
+#ddc .ddc-fcol-h small{display:block;color:var(--sub);font-weight:500;font-size:12px;}
+#ddc .ddc-frow{display:flex;gap:10px;padding:10px 0;border-top:1px solid var(--line);}
+#ddc .ddc-fno{flex:0 0 22px;width:22px;height:22px;border-radius:99px;background:var(--tint);color:var(--blue-d);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-top:1px;}
+#ddc .ddc-fno.is-core{background:var(--blue);color:#fff;}
+#ddc .ddc-frow b{display:block;font-size:14px;line-height:1.4;}
+#ddc .ddc-fex{display:block;font-size:13px;color:var(--sub);line-height:1.45;}
 #ddc .ddc-core{display:inline-block;margin-left:6px;font-size:11px;font-weight:700;color:#fff;background:var(--blue);border-radius:99px;padding:2px 7px;vertical-align:middle;}
-#ddc .ddc-fcard p{font-size:14px;color:var(--sub);margin:10px 0 8px;line-height:1.55;}
-#ddc .ddc-fcard em{font-style:normal;font-size:14px;font-weight:700;color:var(--navy);display:block;}
 #ddc .ddc-proven{padding:24px;margin-top:4px;}
 #ddc .ddc-proven h3{font-size:16px;font-weight:700;margin-bottom:14px;}
 #ddc .ddc-proven li{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:12px 0;border-top:1px solid var(--line);}
@@ -73,8 +77,9 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
 #ddc .ddc-mini{font-size:12px;color:var(--blue-d);background:var(--tint);border-radius:99px;padding:3px 9px;font-weight:700;}
 
 /* steps */
-#ddc .ddc-steps li{display:flex;align-items:center;gap:16px;padding:18px 22px;margin-bottom:10px;}
-#ddc .ddc-num{flex:0 0 36px;width:36px;height:36px;border-radius:99px;background:var(--blue);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:16px;}
+#ddc .ddc-steps{display:flex;flex-wrap:wrap;gap:6px 16px;margin:4px 0 6px;color:var(--sub);font-size:14px;font-weight:600;}
+#ddc .ddc-steps li{display:flex;align-items:center;gap:6px;}
+#ddc .ddc-num{flex:0 0 20px;width:20px;height:20px;border-radius:99px;background:var(--blue);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:12px;}
 
 /* tool */
 #ddc .ddc-label{display:block;font-weight:700;font-size:14px;margin:18px 0 8px;}
@@ -168,7 +173,7 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
 #ddc .ddc-foot p{max-width:640px;}
 
 @media (max-width:720px){
-#ddc .ddc-fgrid{grid-template-columns:1fr 1fr;}
+#ddc .ddc-fcols{grid-template-columns:1fr;}
 #ddc .ddc-links{grid-template-columns:1fr;}
 #ddc .ddc-links a{min-height:0;}
 }
@@ -181,10 +186,8 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
 #ddc .ddc-rcard{padding:22px 20px;}
 #ddc .ddc-diag{padding:22px 20px;}
 #ddc .ddc-promo{padding:30px 24px;}
-#ddc .ddc-steps li{padding:16px 18px;align-items:flex-start;}
 }
 @media (max-width:480px){
-#ddc .ddc-fgrid{grid-template-columns:1fr;}
 #ddc .ddc-hero{padding-top:40px;}
 #ddc .ddc-top .ddc-handle{font-size:12px;padding:5px 11px;}
 }
@@ -202,9 +205,9 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
     <!-- ① hero -->
     <section class="ddc-hero">
       <span class="ddc-pill">떡상 첫 문장 변환기</span>
-      <h1>대충 쓴 제목도<br><span class="ddc-c-blue">떡상하는 첫 문장</span>으로 바꿔드려요</h1>
-      <p>떡상은 <b>첫 1초</b>에 갈려요. <b>14개 카테고리</b>에 맞춰 <b>떡상 15공식</b>으로 다시 쓰고, 가장 센 <b>TOP 5</b>부터 골라드려요.</p>
-      <a class="ddc-tlink" href="#ddc-tool" data-scroll="ddc-tool">바로 바꾸러 가기 ↓</a>
+      <h1>조회수가 안 나오는 이유,<br>영상이 아니라 <span class="ddc-c-blue" style="white-space:nowrap">첫 문장</span>이에요</h1>
+      <p>제목만 넣으면 <b>떡상 15공식</b>으로 다시 써드려요. 가장 센 <b>TOP 5</b>부터요.</p>
+      <a class="ddc-tlink" href="#ddc-tool" data-scroll="ddc-tool">내 제목 바꿔보기 ↓</a>
     </section>
 
     <!-- ② letter -->
@@ -219,36 +222,14 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
       <p class="ddc-sign">— 도행러</p>
     </section>
 
-    <!-- ③ formulas -->
-    <section class="ddc-sec">
-      <h2 class="ddc-h2">떡상 15공식 한눈에 보기</h2>
-      <p class="ddc-lead">터지는 첫 문장은 대부분 <b>숫자·반전·손실</b> 중 2개가 섞여 있어요. <span class="ddc-core" style="margin-left:0">핵심</span> 표시는 꼭 알아둘 6공식이에요.</p>
-      <div id="ddc-fintro"></div>
-      <div class="ddc-card ddc-proven">
-        <h3>실제로 반응 좋았던 도행러 첫 문장</h3>
-        <ul>
-          <li><b>워홀 다녀온 사람이 가장 후회하는 것 1위</b><span class="ddc-mini">1위·랭킹형</span><span class="ddc-mini">후회·손실회피형</span></li>
-          <li><b>워홀을 기회로 만드는 법</b><span class="ddc-mini">비포애프터형</span></li>
-          <li><b>요즘 어딘가 이상한 호주 항공권 가격근황</b><span class="ddc-mini">근황형</span></li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- ④ steps -->
-    <section class="ddc-sec">
-      <h2 class="ddc-h2">변환기 사용법</h2>
-      <ol class="ddc-steps">
-        <li class="ddc-card"><span class="ddc-num">1</span><div><b>직접 제목을 써본 뒤</b> 카테고리를 고르고 [떡상 문장으로 바꾸기]를 눌러요.</div></li>
-        <li class="ddc-card"><span class="ddc-num">2</span><div><b>진단</b>을 보고 내 제목에 뭐가 빠졌는지 확인해요.</div></li>
-        <li class="ddc-card"><span class="ddc-num">3</span><div>가장 센 <b>TOP 5</b>부터 보고, 더 보고 싶으면 <b>15공식 전체</b>를 펼쳐요.</div></li>
-        <li class="ddc-card"><span class="ddc-num">4</span><div>마음에 안 들면 <b>[다른 문장 →]</b>으로 더 넘겨봐요.</div></li>
-        <li class="ddc-card"><span class="ddc-num">5</span><div>그대로 쓰거나, 마음에 드는 표현을 <b>조합해서</b> 내 문장을 완성해요.</div></li>
-      </ol>
-    </section>
-
-    <!-- ⑤ tool -->
+    <!-- ③ tool -->
     <section class="ddc-sec" id="ddc-tool">
       <h2 class="ddc-h2">내 제목 넣어보기</h2>
+      <ol class="ddc-steps">
+        <li><span class="ddc-num">1</span>제목 넣기</li>
+        <li><span class="ddc-num">2</span>진단 보기</li>
+        <li><span class="ddc-num">3</span>골라서 복사</li>
+      </ol>
       <span class="ddc-label">카테고리</span>
       <div class="ddc-cats" id="ddc-cats"></div>
 
@@ -288,6 +269,21 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
       <div id="ddc-top"></div>
       <button class="ddc-toggle" id="ddc-toggle" type="button" aria-expanded="false">15공식 전체 보기 ▾</button>
       <div class="ddc-all" id="ddc-all"></div>
+    </section>
+
+    <!-- ⑤ formulas -->
+    <section class="ddc-sec">
+      <h2 class="ddc-h2">떡상 15공식 한눈에 보기</h2>
+      <p class="ddc-lead">터지는 첫 문장엔 <b>숫자·반전·손실</b> 중 2개가 섞여 있어요. <span class="ddc-fno is-core" style="display:inline-flex;vertical-align:-5px">★</span> 는 꼭 알아둘 핵심 공식이에요.</p>
+      <div id="ddc-fintro"></div>
+      <div class="ddc-card ddc-proven">
+        <h3>실제로 반응 좋았던 도행러 첫 문장</h3>
+        <ul>
+          <li><b>워홀 다녀온 사람이 가장 후회하는 것 1위</b><span class="ddc-mini">1위·랭킹형</span><span class="ddc-mini">후회·손실회피형</span></li>
+          <li><b>워홀을 기회로 만드는 법</b><span class="ddc-mini">비포애프터형</span></li>
+          <li><b>요즘 어딘가 이상한 호주 항공권 가격근황</b><span class="ddc-mini">근황형</span></li>
+        </ul>
+      </div>
     </section>
 
     <!-- ⑧ four elements -->
@@ -626,17 +622,16 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
   }
 
   function renderFormulaIntro() {
-    var html = '';
+    var html = '<div class="ddc-fcols">';
     ['A', 'B', 'C'].forEach(function (g) {
-      html += '<div class="ddc-group"><div class="ddc-group-h">' + GROUPS[g][0] + ' <small>' + GROUPS[g][1] + '</small></div><div class="ddc-fgrid">';
+      html += '<div class="ddc-card ddc-fcol"><div class="ddc-fcol-h">' + GROUPS[g][0] + '<small>' + GROUPS[g][1] + '</small></div>';
       FORMULAS.filter(function (f) { return f.g === g; }).forEach(function (f) {
-        html += '<div class="ddc-card ddc-fcard"><span class="ddc-pill">공식 ' + f.id + ' · ' + esc(f.name) + '</span>' +
-          (f.core ? '<span class="ddc-core">핵심</span>' : '') +
-          '<p>' + esc(f.desc) + '</p><em>예) ' + highlight(f.ex, '') + '</em></div>';
+        html += '<div class="ddc-frow" title="' + esc(f.desc) + '"><span class="ddc-fno' + (f.core ? ' is-core' : '') + '">' + f.id + '</span>' +
+          '<div><b>' + esc(f.name) + '</b><span class="ddc-fex">' + highlight(f.ex, '') + '</span></div></div>';
       });
-      html += '</div></div>';
+      html += '</div>';
     });
-    $('ddc-fintro').innerHTML = html;
+    $('ddc-fintro').innerHTML = html + '</div>';
   }
 
   function renderCats() {
