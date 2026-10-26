@@ -68,6 +68,7 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
 #ddc .ddc-fno.is-core{background:var(--blue);color:#fff;}
 #ddc .ddc-frow b{display:block;font-size:14px;line-height:1.4;}
 #ddc .ddc-fex{display:block;font-size:13px;color:var(--sub);line-height:1.45;}
+#ddc .ddc-fcat{display:inline-block;font-size:11px;font-weight:600;color:#8A99A8;border:1px solid var(--line);border-radius:99px;padding:0 6px;margin-left:4px;vertical-align:2px;white-space:nowrap;}
 #ddc .ddc-core{display:inline-block;margin-left:6px;font-size:11px;font-weight:700;color:#fff;background:var(--blue);border-radius:99px;padding:2px 7px;vertical-align:middle;}
 #ddc .ddc-proven{padding:24px;margin-top:4px;}
 #ddc .ddc-proven h3{font-size:16px;font-weight:700;margin-bottom:14px;}
@@ -274,7 +275,7 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
     <!-- ⑤ formulas -->
     <section class="ddc-sec">
       <h2 class="ddc-h2">떡상 15공식 한눈에 보기</h2>
-      <p class="ddc-lead">터지는 첫 문장엔 <b>숫자·반전·손실</b> 중 2개가 섞여 있어요. <span class="ddc-fno is-core" style="display:inline-flex;vertical-align:-5px">★</span> 는 꼭 알아둘 핵심 공식이에요.</p>
+      <p class="ddc-lead">터지는 첫 문장엔 <b>숫자·반전·손실</b> 중 2개가 섞여 있어요. <b class="ddc-c-blue">파란 번호</b>는 꼭 알아둘 핵심 공식이에요.</p>
       <div id="ddc-fintro"></div>
       <div class="ddc-card ddc-proven">
         <h3>실제로 반응 좋았던 도행러 첫 문장</h3>
@@ -342,35 +343,35 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
      맨 앞 @ = 주제가 '행동'일 때만 쓰는 문장 / __ = 사용자가 채울 숫자
      ========================================================= */
   var FORMULAS = [
-    { id: 1, g: 'A', name: '대상 호명형', tags: ['공', '호'], desc: "누구 얘기인지 불러주면 멈춰요. '~라면?'이 제일 세요.", ex: '워홀러라면 이거 모르면 손해예요',
+    { id: 1, g: 'A', name: '대상 호명형', tags: ['공', '호'], desc: "누구 얘기인지 불러주면 멈춰요. '~라면?'이 제일 세요.", ex: '자취생이라면 이거 모르면 손해예요', c: '요리',
       t: ['{t:이라면} 이거 모르면 손해예요', '{k} 준비 중이라면? 이것부터요', '{k} 고민 중이라면 3초만요', '{t:이라면} {k} 이렇게 해봐요', '{k} 처음이라면? 꼭 보고 가요', '{t}분들, {k} 이거 아셨어요?', '{n} 가기 전이라면? 이것부터', '{t:이라면} 저장해두세요'] },
-    { id: 2, g: 'A', name: '후회·손실회피형', core: true, tags: [], desc: '얻는 것보다 잃는 게 더 무서워요. 손해·후회를 앞에 두세요.', ex: '워홀 끝나면 남는 건 사진뿐?',
+    { id: 2, g: 'A', name: '후회·손실회피형', core: true, tags: [], desc: '얻는 것보다 잃는 게 더 무서워요. 손해·후회를 앞에 두세요.', ex: '이 순서로 바르면 다 소용없어요', c: '뷰티',
       t: ['{k} 끝나면 남는 건 이것뿐?', '미리 알았으면 좋았을 {k}', '{k:을} 이렇게 하면 다 날려요', '{k}, 이거 모르면 {w} 날려요', '@{k} 하면서 제일 후회한 것', '{k} 시작 전에 알았으면 했던 것', '{k} 함정, 저도 빠졌어요', '{k}에서 제일 아까운 실수'] },
-    { id: 3, g: 'A', name: '1위·랭킹형', tags: [], desc: '순위가 붙으면 끝까지 보게 돼요.', ex: '워홀러가 가장 후회하는 것 1위',
+    { id: 3, g: 'A', name: '1위·랭킹형', tags: [], desc: '순위가 붙으면 끝까지 보게 돼요.', ex: '직장인이 돈 모을 때 하는 실수 1위', c: '재테크',
       t: ['{t:이} 가장 후회하는 것 1위', '@{k} 하고 제일 아까웠던 것 1위', '{t} 99%가 놓치는 1가지', '{k} 실수 1위, 저도 했어요', '{t:이} 제일 많이 묻는 {k} 1위', '{k} 만족도 1위는 의외였어요', '{k}에서 제일 쓸모없던 것 1위'] },
-    { id: 4, g: 'A', name: '숫자형', core: true, tags: [], desc: '모호한 말 대신 숫자를 넣으세요. 숫자는 크고 구체적으로.', ex: '3개월 만에 100만원, 이것만 했어요',
+    { id: 4, g: 'A', name: '숫자형', core: true, tags: [], desc: '모호한 말 대신 숫자를 넣으세요. 숫자는 크고 구체적으로.', ex: '3주 만에 5kg 뺀 식단, 딱 이것', c: '다이어트',
       t: ['{d} 만에 {g}, 이것만 했어요', '{k}, 딱 3가지만 기억해요', '{w:으로} 끝낸 {k} 현실', '{k} {d}, 숫자로 보여드릴게요', '{k} 하루 10분이면 충분해요', '{k}에 {w} 쓰고 배운 것', '{d} 동안 매일 해본 {k}', '{k} 3단계면 끝나요'] },
-    { id: 5, g: 'A', name: '시간압박형', tags: [], desc: '지금 안 보면 늦을 것 같아야 멈춰요.', ex: '워홀 끝나기 전에 이것부터',
+    { id: 5, g: 'A', name: '시간압박형', tags: [], desc: '지금 안 보면 늦을 것 같아야 멈춰요.', ex: '연말 전에 이력서부터 고쳐요', c: '커리어',
       t: ['{k} 끝나기 전에 이것부터', '{k} 시작 전에 꼭 보세요', '지금 안 하면 늦는 {k}', '{k}, 미루면 늦어요', '{k} 하기 전 마지막 체크', '다음 달이면 늦는 {k} 준비', '{k}, 오늘 안 하면 또 미뤄요'] },
-    { id: 6, g: 'B', name: '반전형', tags: ['호'], desc: "'~인 줄 알았는데 아니었어요'가 궁금증을 만들어요.", ex: '워홀이 쉬운 줄 알았는데 아니었어요',
+    { id: 6, g: 'B', name: '반전형', tags: ['호'], desc: "'~인 줄 알았는데 아니었어요'가 궁금증을 만들어요.", ex: '적금이 답인 줄 알았는데요', c: '재테크',
       t: ['{k:이} 쉬운 줄 알았는데 아니었어요', '@{k} 했더니 생긴 의외의 일', '다들 말리던 {k}, 해보니까요', '{k}, 알고 보니 이게 핵심이었어요', '{k:은} 돈 문제가 아니었어요', '{k} 망한 줄 알았는데 오히려', '제가 {k}에서 틀렸던 것'] },
-    { id: 7, g: 'B', name: '통념 깨기형', core: true, tags: ['호'], desc: '다들 맞다고 믿는 걸 뒤집어요.', ex: '다들 하는 워홀 준비, 사실 틀렸어요',
+    { id: 7, g: 'B', name: '통념 깨기형', core: true, tags: ['호'], desc: '다들 맞다고 믿는 걸 뒤집어요.', ex: '정리템 살수록 집이 좁아져요', c: '살림',
       t: ['{k}만 하면 안 돼요', '열심히 할수록 망하는 {k}', '다들 하는 {k}, 사실 틀렸어요', '{k}, 열심히가 답이 아니에요', '{k:은} 운이 아니더라고요', '{k} 정석, 저는 반대로 했어요', '남들 따라 하면 망하는 {k}'] },
-    { id: 8, g: 'B', name: '비교형', core: true, tags: ['비'], desc: '둘을 붙여놓으면 차이가 바로 보여요.', ex: '한국 vs 호주, 월급 차이',
+    { id: 8, g: 'B', name: '비교형', core: true, tags: ['비'], desc: '둘을 붙여놓으면 차이가 바로 보여요.', ex: '오사카 패키지 vs 자유여행', c: '여행',
       t: ['{k} 잘하는 사람 vs 못하는 사람', '{k} 전 vs 후, 이렇게 달라요', '한국 vs {n}, {k} 차이', '{k} 첫 달 vs {d} 후', '{k}, 혼자 할 때 vs 같이 할 때', '{k} 잘되는 사람의 한 끗 차이', '{k} 기대 vs 현실'] },
-    { id: 9, g: 'B', name: '비밀공유형', tags: ['호'], desc: '나만 아는 정보처럼 느껴지게 써요.', ex: '워홀 아무도 안 알려주는 것',
+    { id: 9, g: 'B', name: '비밀공유형', tags: ['호'], desc: '나만 아는 정보처럼 느껴지게 써요.', ex: '피부과 다니는 사람만 아는 것', c: '뷰티',
       t: ['{k} 아무도 안 알려주는 것', '{t}끼리만 아는 {k} 비밀', '이건 저만 알고 싶었던 {k}', '{k} 고수들은 말 안 하는 것', '{k}, 아는 사람만 아는 꿀팁', '{k} 커뮤니티에 없는 진짜 정보', '@{k} 해본 사람만 아는 것'] },
-    { id: 10, g: 'B', name: '근황형', tags: ['호'], desc: "'요즘'이 붙으면 지금 봐야 할 것 같아요.", ex: '요즘 어딘가 이상한 호주 항공권 근황',
+    { id: 10, g: 'B', name: '근황형', tags: ['호'], desc: "'요즘'이 붙으면 지금 봐야 할 것 같아요.", ex: '요즘 어딘가 이상한 호주 항공권 근황', c: '해외생활',
       t: ['요즘 어딘가 이상한 {k} 근황', '요즘 {n} {k} 근황', '지금 {k} 상황, 실화예요?', '2026년 {k}, 이렇게 바뀌었어요', '요즘 {k} 분위기 진짜 달라요', '{k}, 요즘은 이렇게 해요', '요즘 {n} 현실 근황'] },
-    { id: 11, g: 'C', name: '경험형', core: true, tags: ['권'], desc: "'__'에 진짜 숫자를 채우세요. 경험은 진짜일 때만 먹혀요.", ex: '워홀 __년 해보고 깨달은 것',
+    { id: 11, g: 'C', name: '경험형', core: true, tags: ['권'], desc: "'__'에 진짜 숫자를 채우세요. 경험은 진짜일 때만 먹혀요.", ex: '부업 __년 해보고 깨달은 것', c: '부업',
       t: ['{k} __년 해보고 깨달은 것', '{k}, 안 해본 사람 조언은 걸러요', '__번 실패하고 알게 된 {k}', '{k} __개월 차가 말하는 현실', '{k} __번 해보고 찾은 답', '직접 해본 사람이 말하는 {k}', '{k} __년 차가 처음 하는 얘기'] },
-    { id: 12, g: 'C', name: '비포애프터형', tags: ['공'], desc: '낮은 시작에서 높은 결과로. 변화가 보이면 따라 하고 싶어져요.', ex: '영어 0이었던 제가 호주에서',
+    { id: 12, g: 'C', name: '비포애프터형', tags: ['공'], desc: '낮은 시작에서 높은 결과로. 변화가 보이면 따라 하고 싶어져요.', ex: '팔로워 0에서 1만까지', c: 'SNS',
       t: ['{k} 0에서 {g}까지', '자신감 0이었던 제가 {k}', '{k} 몰랐던 제가 {d} 만에', '@{k} 꼴찌였던 제가 바뀐 계기', '{d} 전의 나 vs 지금, {k}', '아무것도 없던 제가 {k}', '{k} 하나로 달라진 하루'] },
-    { id: 13, g: 'C', name: '공감형', core: true, tags: ['공'], desc: "'어? 이거 내 얘기인데?'가 나오게 써요.", ex: '워홀 3개월 차, 저만 이래요?',
+    { id: 13, g: 'C', name: '공감형', core: true, tags: ['공'], desc: "'어? 이거 내 얘기인데?'가 나오게 써요.", ex: '육아하다 혼자 울어본 적 있나요?', c: '육아',
       t: ['{k}, 저만 이래요?', '@솔직히 {k} 하다가 현타 왔어요', '@{k} 하면서 제일 서러웠던 날', '{k}, 아무도 말 안 해준 외로움', '{k} 중인데 저만 힘든가요?', '{k} 때문에 울었던 밤', '솔직히 말할게요, {k}'] },
-    { id: 14, g: 'C', name: '상황묘사형', tags: ['공', '호'], desc: '마음 대신 구체적인 장면을 보여줘요.', ex: '호주 마트에서 계산하다 멈춘 이유',
+    { id: 14, g: 'C', name: '상황묘사형', tags: ['공', '호'], desc: '마음 대신 구체적인 장면을 보여줘요.', ex: '체중계 올라갔다가 멈칫한 아침', c: '다이어트',
       t: ['{k} 첫날, 제일 당황한 순간', '@{k} 하다가 멈칫한 장면', '{k} 중 제일 웃겼던 순간', '{k}, 이 장면에서 포기할 뻔했어요', '@{k} 하다 처음 칭찬받은 날', '{k} 첫 달, 통장 보고 멈칫', '{n} 도착 첫날 제일 당황한 것'] },
-    { id: 15, g: 'C', name: '다정한 제안형', tags: ['공'], desc: '지적하지 말고, 아는 언니처럼 권해요.', ex: '워홀러라면 이것만 챙겨요',
+    { id: 15, g: 'C', name: '다정한 제안형', tags: ['공'], desc: '지적하지 말고, 아는 언니처럼 권해요.', ex: '키 작은 사람이라면 이 바지부터 사요', c: '패션',
       t: ['{t:이라면} 이것만 챙겨요', '{k} 처음이라면 이렇게 해봐요', '{t}에게 꼭 해주고 싶은 말', '{k} 지친 분들께 하고 싶은 말', '{k}, 이것부터 같이 해봐요', '{k} 막막하면 이것만 해봐요', '{k} 앞둔 분께 보내는 편지'] }
   ];
 
@@ -627,7 +628,7 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
       html += '<div class="ddc-card ddc-fcol"><div class="ddc-fcol-h">' + GROUPS[g][0] + '<small>' + GROUPS[g][1] + '</small></div>';
       FORMULAS.filter(function (f) { return f.g === g; }).forEach(function (f) {
         html += '<div class="ddc-frow" title="' + esc(f.desc) + '"><span class="ddc-fno' + (f.core ? ' is-core' : '') + '">' + f.id + '</span>' +
-          '<div><b>' + esc(f.name) + '</b><span class="ddc-fex">' + highlight(f.ex, '') + '</span></div></div>';
+          '<div><b>' + esc(f.name) + ' <span class="ddc-fcat">' + esc(f.c) + '</span></b><span class="ddc-fex">' + highlight(f.ex, '') + '</span></div></div>';
       });
       html += '</div>';
     });
