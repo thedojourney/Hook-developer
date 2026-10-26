@@ -1,0 +1,853 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>떡상 첫 문장 변환기 — 도행러</title>
+<meta name="description" content="대충 쓴 제목도 떡상하는 첫 문장으로. 14개 카테고리 × 떡상 15공식으로 다시 써드려요.">
+<style>html,body{margin:0;padding:0;background:#F7F9FB;}</style>
+</head>
+<body>
+<!-- ===== 임베드 코드 시작 (아임웹 코드 위젯 등에는 여기서부터 끝 표시까지 붙여넣으세요) ===== -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+#ddc{--blue:#2AA4F4;--blue-d:#1588D4;--navy:#0F2A44;--bg:#F7F9FB;--card:#FFFFFF;--tint:#E6F4FE;--line:#E3E9EF;--sub:#5B6B7B;--red:#E5484D;
+font-family:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;
+background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-break:keep-all;overflow-wrap:break-word;-webkit-font-smoothing:antialiased;text-align:left;}
+#ddc,#ddc *,#ddc *::before,#ddc *::after{box-sizing:border-box;margin:0;padding:0;}
+#ddc a{color:inherit;text-decoration:none;}
+#ddc button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;line-height:1.3;letter-spacing:0;}
+#ddc input{font:inherit;color:var(--navy);}
+#ddc ul,#ddc ol{list-style:none;}
+#ddc strong,#ddc b{font-weight:700;}
+#ddc .ddc-wrap{max-width:860px;margin:0 auto;padding:0 20px;}
+
+/* topbar */
+#ddc .ddc-top{background:var(--navy);color:#fff;}
+#ddc .ddc-top .ddc-wrap{display:flex;align-items:center;justify-content:space-between;height:56px;gap:12px;}
+#ddc .ddc-brand{font-weight:700;font-size:15px;display:flex;align-items:center;gap:8px;}
+#ddc .ddc-dot{width:8px;height:8px;border-radius:99px;background:var(--blue);display:inline-block;}
+#ddc .ddc-handle{border:1px solid rgba(255,255,255,.28);border-radius:99px;padding:6px 14px;font-size:13px;color:#fff;}
+#ddc .ddc-handle:hover{border-color:var(--blue);}
+
+/* common */
+#ddc .ddc-sec{padding:72px 0 0;}
+#ddc .ddc-h2{font-size:clamp(24px,4.4vw,32px);font-weight:700;line-height:1.3;letter-spacing:-.02em;margin-bottom:10px;}
+#ddc .ddc-lead{color:var(--sub);font-size:15px;margin-bottom:24px;}
+#ddc .ddc-pill{display:inline-flex;align-items:center;height:30px;padding:0 14px;border-radius:99px;background:var(--tint);color:var(--blue-d);font-weight:700;font-size:13px;white-space:nowrap;}
+#ddc .ddc-card{background:var(--card);border:1px solid var(--line);border-radius:14px;}
+#ddc .ddc-tlink{display:inline-flex;align-items:center;gap:6px;color:var(--blue-d);font-weight:700;border-bottom:2px solid var(--blue);padding-bottom:2px;}
+#ddc .ddc-c-blue{color:var(--blue);}
+
+/* hero */
+#ddc .ddc-hero{padding:56px 0 8px;}
+#ddc .ddc-hero h1{font-size:clamp(32px,6.4vw,52px);line-height:1.22;font-weight:800;letter-spacing:-.03em;margin:18px 0 18px;text-wrap:balance;}
+#ddc .ddc-hero p{color:var(--sub);font-size:16px;max-width:620px;margin-bottom:22px;}
+#ddc .ddc-hero p b{color:var(--navy);}
+
+/* letter */
+#ddc .ddc-letter{padding:40px;margin-top:40px;font-size:16px;}
+#ddc .ddc-letter p{margin-bottom:16px;}
+#ddc .ddc-letter .ddc-hi{display:inline;background:var(--tint);color:var(--blue-d);font-weight:700;padding:2px 6px;border-radius:6px;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
+#ddc .ddc-hello{font-size:19px;margin-bottom:18px!important;line-height:1.5;}
+#ddc .ddc-flow{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin:22px 0 22px;}
+#ddc .ddc-flow span.ddc-fp{background:var(--navy);color:#fff;border-radius:99px;padding:9px 18px;font-weight:700;font-size:15px;}
+#ddc .ddc-flow span.ddc-fa{color:var(--blue);font-weight:800;font-size:18px;}
+#ddc .ddc-sign{font-weight:700;margin-top:6px;margin-bottom:0!important;}
+
+/* formulas intro */
+#ddc .ddc-group{margin-bottom:28px;}
+#ddc .ddc-group-h{font-weight:700;font-size:16px;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+#ddc .ddc-group-h small{color:var(--sub);font-weight:500;font-size:13px;}
+#ddc .ddc-fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+#ddc .ddc-fcard{padding:18px;}
+#ddc .ddc-fcard .ddc-pill{height:26px;font-size:12px;padding:0 10px;}
+#ddc .ddc-core{display:inline-block;margin-left:6px;font-size:11px;font-weight:700;color:#fff;background:var(--blue);border-radius:99px;padding:2px 7px;vertical-align:middle;}
+#ddc .ddc-fcard p{font-size:14px;color:var(--sub);margin:10px 0 8px;line-height:1.55;}
+#ddc .ddc-fcard em{font-style:normal;font-size:14px;font-weight:700;color:var(--navy);display:block;}
+#ddc .ddc-proven{padding:24px;margin-top:4px;}
+#ddc .ddc-proven h3{font-size:16px;font-weight:700;margin-bottom:14px;}
+#ddc .ddc-proven li{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:12px 0;border-top:1px solid var(--line);}
+#ddc .ddc-proven li:first-child{border-top:0;padding-top:0;}
+#ddc .ddc-proven li b{font-size:15px;margin-right:4px;}
+#ddc .ddc-mini{font-size:12px;color:var(--blue-d);background:var(--tint);border-radius:99px;padding:3px 9px;font-weight:700;}
+
+/* steps */
+#ddc .ddc-steps li{display:flex;align-items:center;gap:16px;padding:18px 22px;margin-bottom:10px;}
+#ddc .ddc-num{flex:0 0 36px;width:36px;height:36px;border-radius:99px;background:var(--blue);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:16px;}
+
+/* tool */
+#ddc .ddc-label{display:block;font-weight:700;font-size:14px;margin:18px 0 8px;}
+#ddc .ddc-cats,#ddc .ddc-targets{display:flex;flex-wrap:wrap;gap:8px;}
+#ddc .ddc-chipbtn{border:1px solid var(--line)!important;background:#fff!important;border-radius:99px;padding:8px 14px;font-size:14px;color:var(--navy)!important;transition:all .15s;}
+#ddc .ddc-chipbtn:hover{border-color:var(--blue)!important;}
+#ddc .ddc-chipbtn.is-on{background:var(--navy)!important;border-color:var(--navy)!important;color:#fff!important;font-weight:700;}
+#ddc .ddc-row{display:flex;gap:10px;}
+#ddc .ddc-input{flex:1;min-width:0;height:56px;border:1px solid var(--line);border-radius:12px;background:#fff;padding:0 18px;font-size:16px;outline:none;transition:border-color .15s;}
+#ddc .ddc-input:focus{border-color:var(--blue);}
+#ddc .ddc-input::placeholder{color:#9AA8B5;}
+#ddc .ddc-go{height:56px;padding:0 26px;border-radius:12px;background:var(--blue)!important;color:#fff!important;font-weight:700;font-size:16px;white-space:nowrap;transition:background .15s;}
+#ddc .ddc-go:hover{background:var(--blue-d)!important;}
+#ddc .ddc-sub2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+#ddc .ddc-input.ddc-small{height:48px;font-size:15px;}
+#ddc .ddc-ex{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:16px;}
+#ddc .ddc-ex > span{color:var(--sub);font-size:14px;margin-right:4px;}
+#ddc .ddc-ex .ddc-chipbtn{font-size:14px;color:var(--sub)!important;}
+#ddc .ddc-status{margin-top:16px;font-size:14px;color:var(--sub);display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+#ddc .ddc-status .ddc-pill{height:26px;font-size:12px;}
+#ddc .ddc-err{color:var(--red);font-size:14px;margin-top:8px;display:none;}
+#ddc .ddc-err.is-on{display:block;}
+
+/* diagnosis */
+#ddc .ddc-diag{padding:28px;margin-top:28px;}
+#ddc .ddc-diag h3{font-size:17px;font-weight:700;margin-bottom:14px;}
+#ddc .ddc-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;}
+#ddc .ddc-tag{background:var(--tint);color:var(--blue-d);border-radius:99px;padding:8px 14px;font-size:14px;font-weight:600;line-height:1.45;}
+#ddc .ddc-tag.is-good{background:#E8F7EE;color:#1E8A4C;}
+#ddc .ddc-fix{color:var(--sub);font-size:14px;}
+
+/* results */
+#ddc .ddc-rcard{padding:26px 28px;margin-bottom:14px;position:relative;}
+#ddc .ddc-rhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;}
+#ddc .ddc-rbadges{display:flex;flex-wrap:wrap;gap:6px;align-items:center;}
+#ddc .ddc-rank{display:inline-flex;align-items:center;height:30px;padding:0 12px;border-radius:99px;background:var(--navy);color:#fff;font-weight:800;font-size:13px;}
+#ddc .ddc-copy{border:1px solid var(--line)!important;background:#fff!important;border-radius:12px;padding:9px 16px;font-size:14px;font-weight:600;white-space:nowrap;transition:all .15s;}
+#ddc .ddc-copy:hover{border-color:var(--blue)!important;}
+#ddc .ddc-copy.is-done{background:var(--blue)!important;border-color:var(--blue)!important;color:#fff!important;}
+#ddc .ddc-orig{font-size:14px;color:#9AA8B5;text-decoration:line-through;margin-bottom:6px;}
+#ddc .ddc-out{font-size:clamp(22px,3.6vw,28px);font-weight:800;line-height:1.35;letter-spacing:-.02em;transition:opacity .15s;}
+#ddc .ddc-out.is-fade{opacity:0;}
+#ddc .ddc-out .ddc-k{color:var(--blue);}
+#ddc .ddc-blank{display:inline-block;min-width:1.6em;border-bottom:2px dashed var(--blue);color:var(--blue);text-align:center;}
+#ddc .ddc-tip{color:var(--sub);font-size:14px;margin:8px 0 0;}
+#ddc .ddc-dna{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px;}
+#ddc .ddc-rfoot{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:16px;}
+#ddc .ddc-next{font-weight:700;font-size:14px;border-bottom:2px solid var(--navy)!important;padding:2px 0!important;}
+#ddc .ddc-next:hover{color:var(--blue);border-color:var(--blue)!important;}
+#ddc .ddc-count{color:var(--sub);font-size:14px;}
+#ddc .ddc-len{border:1px solid var(--line);border-radius:99px;padding:2px 10px;font-size:13px;color:var(--sub);}
+#ddc .ddc-len.is-over{border-color:var(--red);color:var(--red);font-weight:700;}
+#ddc .ddc-empty{color:var(--sub);font-size:15px;}
+#ddc .ddc-toggle{display:flex;align-items:center;justify-content:center;width:100%;height:54px;border:1px solid var(--line)!important;background:#fff!important;border-radius:12px;font-weight:700;font-size:15px;margin:18px 0;transition:border-color .15s;}
+#ddc .ddc-toggle:hover{border-color:var(--blue)!important;color:var(--blue-d);}
+#ddc .ddc-all{display:none;}
+#ddc .ddc-all.is-open{display:block;}
+#ddc .ddc-all-g{font-weight:700;font-size:16px;margin:26px 0 12px;}
+
+/* 4 elements */
+#ddc .ddc-four{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+#ddc .ddc-four li{padding:22px 20px;}
+#ddc .ddc-four li span{display:block;font-size:14px;color:var(--sub);margin-bottom:10px;}
+#ddc .ddc-four li b{display:block;font-size:18px;margin-bottom:8px;}
+#ddc .ddc-four li p{font-size:14px;color:var(--sub);line-height:1.6;}
+#ddc .ddc-four li.is-main{background:var(--blue);border-color:var(--blue);color:#fff;}
+#ddc .ddc-four li.is-main span,#ddc .ddc-four li.is-main p{color:rgba(255,255,255,.9);}
+
+/* promo */
+#ddc .ddc-promo{background:var(--navy);color:#fff;border-radius:14px;padding:44px;margin-top:72px;}
+#ddc .ddc-promo .ddc-pbadge{display:inline-flex;align-items:center;height:30px;padding:0 14px;border-radius:99px;background:var(--blue);color:#fff;font-weight:700;font-size:13px;}
+#ddc .ddc-promo h2{font-size:clamp(24px,4.6vw,34px);font-weight:800;line-height:1.3;margin:16px 0 6px;letter-spacing:-.02em;}
+#ddc .ddc-promo h3{font-size:clamp(18px,3.2vw,22px);font-weight:700;color:var(--blue);margin-bottom:12px;}
+#ddc .ddc-promo p{color:rgba(255,255,255,.82);font-size:15px;margin-bottom:24px;max-width:560px;}
+#ddc .ddc-pbtns{display:flex;flex-wrap:wrap;align-items:center;gap:18px;}
+#ddc .ddc-pbtn{display:inline-flex;align-items:center;justify-content:center;height:54px;padding:0 26px;border-radius:12px;background:var(--blue);color:#fff!important;font-weight:700;font-size:16px;transition:background .15s;}
+#ddc .ddc-pbtn:hover{background:var(--blue-d);}
+#ddc .ddc-plink{color:#fff!important;font-weight:600;border-bottom:1px solid rgba(255,255,255,.5);padding-bottom:2px;font-size:15px;}
+
+/* link cards */
+#ddc .ddc-links{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px;}
+#ddc .ddc-links a{display:flex;flex-direction:column;padding:24px;min-height:170px;transition:border-color .15s;}
+#ddc .ddc-links a:hover{border-color:var(--blue);}
+#ddc .ddc-links small{color:var(--blue-d);font-weight:700;font-size:13px;margin-bottom:8px;}
+#ddc .ddc-links b{font-size:17px;line-height:1.4;margin-bottom:auto;}
+#ddc .ddc-links span{color:var(--sub);font-size:14px;margin-top:18px;}
+
+/* footer */
+#ddc .ddc-foot{background:var(--navy);color:rgba(255,255,255,.75);margin-top:72px;padding:40px 0 48px;font-size:13px;line-height:1.7;}
+#ddc .ddc-foot b{color:#fff;font-size:15px;display:block;margin-bottom:10px;}
+#ddc .ddc-foot p{max-width:640px;}
+
+@media (max-width:720px){
+#ddc .ddc-fgrid{grid-template-columns:1fr 1fr;}
+#ddc .ddc-links{grid-template-columns:1fr;}
+#ddc .ddc-links a{min-height:0;}
+}
+@media (max-width:640px){
+#ddc .ddc-four{grid-template-columns:1fr 1fr;}
+#ddc .ddc-letter{padding:26px 22px;}
+#ddc .ddc-row{flex-direction:column;}
+#ddc .ddc-go{width:100%;}
+#ddc .ddc-sub2{grid-template-columns:1fr;gap:0;}
+#ddc .ddc-rcard{padding:22px 20px;}
+#ddc .ddc-diag{padding:22px 20px;}
+#ddc .ddc-promo{padding:30px 24px;}
+#ddc .ddc-steps li{padding:16px 18px;align-items:flex-start;}
+}
+@media (max-width:480px){
+#ddc .ddc-fgrid{grid-template-columns:1fr;}
+#ddc .ddc-hero{padding-top:40px;}
+#ddc .ddc-top .ddc-handle{font-size:12px;padding:5px 11px;}
+}
+</style>
+
+<div id="ddc">
+  <div class="ddc-top">
+    <div class="ddc-wrap">
+      <div class="ddc-brand"><span class="ddc-dot"></span>도행러</div>
+      <a class="ddc-handle" href="https://www.instagram.com/thedojourney_/" target="_blank" rel="noopener">@thedojourney_</a>
+    </div>
+  </div>
+
+  <div class="ddc-wrap">
+    <!-- ① hero -->
+    <section class="ddc-hero">
+      <span class="ddc-pill">떡상 첫 문장 변환기</span>
+      <h1>대충 쓴 제목도<br><span class="ddc-c-blue">떡상하는 첫 문장</span>으로 바꿔드려요</h1>
+      <p>떡상은 <b>첫 1초</b>에 갈려요. <b>14개 카테고리</b>에 맞춰 <b>떡상 15공식</b>으로 다시 쓰고, 가장 센 <b>TOP 5</b>부터 골라드려요.</p>
+      <a class="ddc-tlink" href="#ddc-tool" data-scroll="ddc-tool">바로 바꾸러 가기 ↓</a>
+    </section>
+
+    <!-- ② letter -->
+    <section class="ddc-card ddc-letter">
+      <p class="ddc-hello">안녕하세요!<br><b>도행러</b>입니다 🙌</p>
+      <p>해외에 있을 때 찍은 사진만 몇천 장이었어요. 그런데 올리면 반응이 없더라고요. 인스타도 8번이나 실패했어요.</p>
+      <p>그러다 알게 됐어요. <span class="ddc-hi">경험이 아니라 첫 문장이 문제였어요.</span></p>
+      <p>사람들은 남의 일상이 아니라 <b>'나한테 필요한 것'</b>에서 멈춰요. 같은 경험도 첫 문장을 어떻게 쓰느냐에 따라 넘겨지기도 하고, 끝까지 보게 되기도 하더라고요.</p>
+      <p>이 변환기는 대신 다 써주는 AI가 아니에요. 공식을 대입해서 문장을 보여주는 도구라 100% 좋은 문장만 나온다고 장담할 순 없어요. 대신 여러 문장을 보면서 고르고 조합하다 보면, 첫 문장 감이 확실히 생겨요.</p>
+      <div class="ddc-flow"><span class="ddc-fp">써보고</span><span class="ddc-fa">→</span><span class="ddc-fp">점검하고</span><span class="ddc-fa">→</span><span class="ddc-fp">골라 쓰기</span></div>
+      <p>대단한 경험 아니어도 괜찮아요. 첫 문장부터 바꿔봐요!</p>
+      <p class="ddc-sign">— 도행러</p>
+    </section>
+
+    <!-- ③ formulas -->
+    <section class="ddc-sec">
+      <h2 class="ddc-h2">떡상 15공식 한눈에 보기</h2>
+      <p class="ddc-lead">터지는 첫 문장은 대부분 <b>숫자·반전·손실</b> 중 2개가 섞여 있어요. <span class="ddc-core" style="margin-left:0">핵심</span> 표시는 꼭 알아둘 6공식이에요.</p>
+      <div id="ddc-fintro"></div>
+      <div class="ddc-card ddc-proven">
+        <h3>실제로 반응 좋았던 도행러 첫 문장</h3>
+        <ul>
+          <li><b>워홀 다녀온 사람이 가장 후회하는 것 1위</b><span class="ddc-mini">1위·랭킹형</span><span class="ddc-mini">후회·손실회피형</span></li>
+          <li><b>워홀을 기회로 만드는 법</b><span class="ddc-mini">비포애프터형</span></li>
+          <li><b>요즘 어딘가 이상한 호주 항공권 가격근황</b><span class="ddc-mini">근황형</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ④ steps -->
+    <section class="ddc-sec">
+      <h2 class="ddc-h2">변환기 사용법</h2>
+      <ol class="ddc-steps">
+        <li class="ddc-card"><span class="ddc-num">1</span><div><b>직접 제목을 써본 뒤</b> 카테고리를 고르고 [떡상 문장으로 바꾸기]를 눌러요.</div></li>
+        <li class="ddc-card"><span class="ddc-num">2</span><div><b>진단</b>을 보고 내 제목에 뭐가 빠졌는지 확인해요.</div></li>
+        <li class="ddc-card"><span class="ddc-num">3</span><div>가장 센 <b>TOP 5</b>부터 보고, 더 보고 싶으면 <b>15공식 전체</b>를 펼쳐요.</div></li>
+        <li class="ddc-card"><span class="ddc-num">4</span><div>마음에 안 들면 <b>[다른 문장 →]</b>으로 더 넘겨봐요.</div></li>
+        <li class="ddc-card"><span class="ddc-num">5</span><div>그대로 쓰거나, 마음에 드는 표현을 <b>조합해서</b> 내 문장을 완성해요.</div></li>
+      </ol>
+    </section>
+
+    <!-- ⑤ tool -->
+    <section class="ddc-sec" id="ddc-tool">
+      <h2 class="ddc-h2">내 제목 넣어보기</h2>
+      <span class="ddc-label">카테고리</span>
+      <div class="ddc-cats" id="ddc-cats"></div>
+
+      <label class="ddc-label" for="ddc-title">내가 쓴 제목</label>
+      <div class="ddc-row">
+        <input class="ddc-input" id="ddc-title" type="text" maxlength="40" placeholder="예) 호주 워홀 브이로그" autocomplete="off">
+        <button class="ddc-go" id="ddc-go" type="button">떡상 문장으로 바꾸기</button>
+      </div>
+      <p class="ddc-err" id="ddc-err">제목을 먼저 적어주세요.</p>
+
+      <div class="ddc-sub2">
+        <div>
+          <label class="ddc-label" for="ddc-sit" id="ddc-sit-label">나라·도시 (선택)</label>
+          <input class="ddc-input ddc-small" id="ddc-sit" type="text" maxlength="20" placeholder="예) 호주 멜버른" autocomplete="off">
+        </div>
+        <div>
+          <span class="ddc-label">누구에게 하는 말인가요?</span>
+          <div class="ddc-targets" id="ddc-targets"></div>
+        </div>
+      </div>
+
+      <div class="ddc-ex" id="ddc-ex"></div>
+      <div class="ddc-status" id="ddc-status"></div>
+
+      <!-- ⑥ diagnosis -->
+      <div class="ddc-card ddc-diag" id="ddc-diag">
+        <h3>진단 — <span class="ddc-c-blue">왜 넘겨졌을까</span></h3>
+        <div class="ddc-tags" id="ddc-tags"></div>
+        <p class="ddc-fix">수정 방향: 20자 안에서, 숫자·반전·손실 중 2개를 섞어서. 아래 공식이 대신 바꿔드릴게요.</p>
+      </div>
+    </section>
+
+    <!-- ⑦ results -->
+    <section class="ddc-sec">
+      <h2 class="ddc-h2">가장 센 첫 문장 TOP 5</h2>
+      <p class="ddc-lead">15공식에서 숫자·반전·손실이 많이 섞인 문장부터 골랐어요. [다른 문장 →]으로 넘겨보고, 마음에 드는 걸 복사하세요.</p>
+      <div id="ddc-top"></div>
+      <button class="ddc-toggle" id="ddc-toggle" type="button" aria-expanded="false">15공식 전체 보기 ▾</button>
+      <div class="ddc-all" id="ddc-all"></div>
+    </section>
+
+    <!-- ⑧ four elements -->
+    <section class="ddc-sec">
+      <h2 class="ddc-h2">첫 문장만 바꾸면 끝이 아니에요</h2>
+      <p class="ddc-lead">후킹은 네 군데에서 동시에 일어나요. 그중 제일 중요한 건 첫 화면이에요.</p>
+      <ul class="ddc-four">
+        <li class="ddc-card is-main"><span>1</span><b>첫 화면</b><p>넘길지 말지는 첫 화면에서 갈려요. 제일 센 장면을 맨 앞에 붙여요.</p></li>
+        <li class="ddc-card"><span>2</span><b>화면 속 제목</b><p>릴스 탭에선 표지가 잘 안 보이더라고요. 제목은 영상 위에 직접, 2초 이상 띄워둬요.</p></li>
+        <li class="ddc-card"><span>3</span><b>첫 멘트</b><p>"안녕하세요"로 시작하면 바로 넘겨요. 감정이나 결론부터 툭 던져요.</p></li>
+        <li class="ddc-card"><span>4</span><b>캡션 첫 줄</b><p>영상을 본 사람이 읽는 두 번째 후킹이에요. 짧게 끊어서 궁금하게 남겨요.</p></li>
+      </ul>
+    </section>
+
+    <!-- ⑨ promo -->
+    <section class="ddc-promo">
+      <span class="ddc-pbadge">다음 기수 사전 신청 중</span>
+      <h2>혼자 하면 또 미루게 된다면</h2>
+      <h3>4주 크리에이터 챌린지, 워크챌</h3>
+      <p>해외 경험을 콘텐츠로, 콘텐츠를 다음 기회로. 4주 동안 같이 써보고, 점검받고, 올려봐요.</p>
+      <div class="ddc-pbtns">
+        <a class="ddc-pbtn" href="https://tally.so/r/2jjXae" target="_blank" rel="noopener">다음 기수 사전 신청하기</a>
+        <a class="ddc-plink" href="https://thedojourney.imweb.me/33" target="_blank" rel="noopener">워크챌 자세히 보기 →</a>
+      </div>
+    </section>
+
+    <div class="ddc-links">
+      <a class="ddc-card" href="https://thedojourney.imweb.me/32" target="_blank" rel="noopener"><small>1:1 프리미엄 컨설팅</small><b>내 경험으로 뭘 할 수 있을지 막막하다면</b><span>1:1 컨설팅 알아보기 →</span></a>
+      <a class="ddc-card" href="https://open.kakao.com/me/thedojourney" target="_blank" rel="noopener"><small>카카오톡</small><b>궁금한 건 편하게 물어봐요</b><span>카카오톡으로 문의하기 →</span></a>
+      <a class="ddc-card" href="https://www.instagram.com/thedojourney_/" target="_blank" rel="noopener"><small>인스타그램</small><b>해외생활과 콘텐츠 이야기를 올려요</b><span>@thedojourney_ 보러 가기 →</span></a>
+    </div>
+  </div>
+
+  <footer class="ddc-foot">
+    <div class="ddc-wrap">
+      <b>도행러 — 해외 경험을 다음 커리어로</b>
+      <p>이 변환기는 AI가 아니라 공식 템플릿으로 움직여요. 제목에서 주제어를 뽑고, 카테고리·대상·나라를 15공식 템플릿에 넣은 뒤 조사를 맞춰요. 24자가 넘거나 같은 단어가 겹치는 문장은 빼고, 숫자·반전·손실이 많이 섞인 문장일수록 위로 올려요. 입력한 내용은 어디에도 저장되지 않아요.</p>
+    </div>
+  </footer>
+</div>
+
+<script>
+/* 주의: 이 스크립트에는 '//' 한 줄 주석을 쓰지 마세요.
+   편집기가 줄바꿈을 지우면 그 뒤 코드가 전부 주석이 돼서 변환기가 멈춰요. */
+(function () {
+  var root = document.getElementById('ddc');
+  if (!root) return;
+  function $(id) { return document.getElementById(id); }
+
+  /* =========================================================
+     데이터 — 템플릿은 여기만 고치면 돼요
+     변수: {k}주제어 {t}대상 {n}나라·도시·지역 {s}상황 {p}기간 {m}숫자
+           {d}'~만에'에 쓰는 기간 {w}금액 {g}목표치
+           — 카테고리에 없으면 그 문장은 자동으로 빠져요
+     조사: {k:이} {k:은} {k:을} {k:과} {k:으로} {k:이라면} {k:이면}
+     맨 앞 @ = 주제가 '행동'일 때만 쓰는 문장 / __ = 사용자가 채울 숫자
+     ========================================================= */
+  var FORMULAS = [
+    { id: 1, g: 'A', name: '대상 호명형', tags: ['공', '호'], desc: "누구 얘기인지 불러주면 멈춰요. '~라면?'이 제일 세요.", ex: '워홀러라면 이거 모르면 손해예요',
+      t: ['{t:이라면} 이거 모르면 손해예요', '{k} 준비 중이라면? 이것부터요', '{k} 고민 중이라면 3초만요', '{t:이라면} {k} 이렇게 해봐요', '{k} 처음이라면? 꼭 보고 가요', '{t}분들, {k} 이거 아셨어요?', '{n} 가기 전이라면? 이것부터', '{t:이라면} 저장해두세요'] },
+    { id: 2, g: 'A', name: '후회·손실회피형', core: true, tags: [], desc: '얻는 것보다 잃는 게 더 무서워요. 손해·후회를 앞에 두세요.', ex: '워홀 끝나면 남는 건 사진뿐?',
+      t: ['{k} 끝나면 남는 건 이것뿐?', '미리 알았으면 좋았을 {k}', '{k:을} 이렇게 하면 다 날려요', '{k}, 이거 모르면 {w} 날려요', '@{k} 하면서 제일 후회한 것', '{k} 시작 전에 알았으면 했던 것', '{k} 함정, 저도 빠졌어요', '{k}에서 제일 아까운 실수'] },
+    { id: 3, g: 'A', name: '1위·랭킹형', tags: [], desc: '순위가 붙으면 끝까지 보게 돼요.', ex: '워홀러가 가장 후회하는 것 1위',
+      t: ['{t:이} 가장 후회하는 것 1위', '@{k} 하고 제일 아까웠던 것 1위', '{t} 99%가 놓치는 1가지', '{k} 실수 1위, 저도 했어요', '{t:이} 제일 많이 묻는 {k} 1위', '{k} 만족도 1위는 의외였어요', '{k}에서 제일 쓸모없던 것 1위'] },
+    { id: 4, g: 'A', name: '숫자형', core: true, tags: [], desc: '모호한 말 대신 숫자를 넣으세요. 숫자는 크고 구체적으로.', ex: '3개월 만에 100만원, 이것만 했어요',
+      t: ['{d} 만에 {g}, 이것만 했어요', '{k}, 딱 3가지만 기억해요', '{w:으로} 끝낸 {k} 현실', '{k} {d}, 숫자로 보여드릴게요', '{k} 하루 10분이면 충분해요', '{k}에 {w} 쓰고 배운 것', '{d} 동안 매일 해본 {k}', '{k} 3단계면 끝나요'] },
+    { id: 5, g: 'A', name: '시간압박형', tags: [], desc: '지금 안 보면 늦을 것 같아야 멈춰요.', ex: '워홀 끝나기 전에 이것부터',
+      t: ['{k} 끝나기 전에 이것부터', '{k} 시작 전에 꼭 보세요', '지금 안 하면 늦는 {k}', '{k}, 미루면 늦어요', '{k} 하기 전 마지막 체크', '다음 달이면 늦는 {k} 준비', '{k}, 오늘 안 하면 또 미뤄요'] },
+    { id: 6, g: 'B', name: '반전형', tags: ['호'], desc: "'~인 줄 알았는데 아니었어요'가 궁금증을 만들어요.", ex: '워홀이 쉬운 줄 알았는데 아니었어요',
+      t: ['{k:이} 쉬운 줄 알았는데 아니었어요', '@{k} 했더니 생긴 의외의 일', '다들 말리던 {k}, 해보니까요', '{k}, 알고 보니 이게 핵심이었어요', '{k:은} 돈 문제가 아니었어요', '{k} 망한 줄 알았는데 오히려', '제가 {k}에서 틀렸던 것'] },
+    { id: 7, g: 'B', name: '통념 깨기형', core: true, tags: ['호'], desc: '다들 맞다고 믿는 걸 뒤집어요.', ex: '다들 하는 워홀 준비, 사실 틀렸어요',
+      t: ['{k}만 하면 안 돼요', '열심히 할수록 망하는 {k}', '다들 하는 {k}, 사실 틀렸어요', '{k}, 열심히가 답이 아니에요', '{k:은} 운이 아니더라고요', '{k} 정석, 저는 반대로 했어요', '남들 따라 하면 망하는 {k}'] },
+    { id: 8, g: 'B', name: '비교형', core: true, tags: ['비'], desc: '둘을 붙여놓으면 차이가 바로 보여요.', ex: '한국 vs 호주, 월급 차이',
+      t: ['{k} 잘하는 사람 vs 못하는 사람', '{k} 전 vs 후, 이렇게 달라요', '한국 vs {n}, {k} 차이', '{k} 첫 달 vs {d} 후', '{k}, 혼자 할 때 vs 같이 할 때', '{k} 잘되는 사람의 한 끗 차이', '{k} 기대 vs 현실'] },
+    { id: 9, g: 'B', name: '비밀공유형', tags: ['호'], desc: '나만 아는 정보처럼 느껴지게 써요.', ex: '워홀 아무도 안 알려주는 것',
+      t: ['{k} 아무도 안 알려주는 것', '{t}끼리만 아는 {k} 비밀', '이건 저만 알고 싶었던 {k}', '{k} 고수들은 말 안 하는 것', '{k}, 아는 사람만 아는 꿀팁', '{k} 커뮤니티에 없는 진짜 정보', '@{k} 해본 사람만 아는 것'] },
+    { id: 10, g: 'B', name: '근황형', tags: ['호'], desc: "'요즘'이 붙으면 지금 봐야 할 것 같아요.", ex: '요즘 어딘가 이상한 호주 항공권 근황',
+      t: ['요즘 어딘가 이상한 {k} 근황', '요즘 {n} {k} 근황', '지금 {k} 상황, 실화예요?', '2026년 {k}, 이렇게 바뀌었어요', '요즘 {k} 분위기 진짜 달라요', '{k}, 요즘은 이렇게 해요', '요즘 {n} 현실 근황'] },
+    { id: 11, g: 'C', name: '경험형', core: true, tags: ['권'], desc: "'__'에 진짜 숫자를 채우세요. 경험은 진짜일 때만 먹혀요.", ex: '워홀 __년 해보고 깨달은 것',
+      t: ['{k} __년 해보고 깨달은 것', '{k}, 안 해본 사람 조언은 걸러요', '__번 실패하고 알게 된 {k}', '{k} __개월 차가 말하는 현실', '{k} __번 해보고 찾은 답', '직접 해본 사람이 말하는 {k}', '{k} __년 차가 처음 하는 얘기'] },
+    { id: 12, g: 'C', name: '비포애프터형', tags: ['공'], desc: '낮은 시작에서 높은 결과로. 변화가 보이면 따라 하고 싶어져요.', ex: '영어 0이었던 제가 호주에서',
+      t: ['{k} 0에서 {g}까지', '자신감 0이었던 제가 {k}', '{k} 몰랐던 제가 {d} 만에', '@{k} 꼴찌였던 제가 바뀐 계기', '{d} 전의 나 vs 지금, {k}', '아무것도 없던 제가 {k}', '{k} 하나로 달라진 하루'] },
+    { id: 13, g: 'C', name: '공감형', core: true, tags: ['공'], desc: "'어? 이거 내 얘기인데?'가 나오게 써요.", ex: '워홀 3개월 차, 저만 이래요?',
+      t: ['{k}, 저만 이래요?', '@솔직히 {k} 하다가 현타 왔어요', '@{k} 하면서 제일 서러웠던 날', '{k}, 아무도 말 안 해준 외로움', '{k} 중인데 저만 힘든가요?', '{k} 때문에 울었던 밤', '솔직히 말할게요, {k}'] },
+    { id: 14, g: 'C', name: '상황묘사형', tags: ['공', '호'], desc: '마음 대신 구체적인 장면을 보여줘요.', ex: '호주 마트에서 계산하다 멈춘 이유',
+      t: ['{k} 첫날, 제일 당황한 순간', '@{k} 하다가 멈칫한 장면', '{k} 중 제일 웃겼던 순간', '{k}, 이 장면에서 포기할 뻔했어요', '@{k} 하다 처음 칭찬받은 날', '{k} 첫 달, 통장 보고 멈칫', '{n} 도착 첫날 제일 당황한 것'] },
+    { id: 15, g: 'C', name: '다정한 제안형', tags: ['공'], desc: '지적하지 말고, 아는 언니처럼 권해요.', ex: '워홀러라면 이것만 챙겨요',
+      t: ['{t:이라면} 이것만 챙겨요', '{k} 처음이라면 이렇게 해봐요', '{t}에게 꼭 해주고 싶은 말', '{k} 지친 분들께 하고 싶은 말', '{k}, 이것부터 같이 해봐요', '{k} 막막하면 이것만 해봐요', '{k} 앞둔 분께 보내는 편지'] }
+  ];
+
+  var GROUPS = {
+    A: ['멈추게 하는 공식', '스크롤을 붙잡아요'],
+    B: ['궁금하게 하는 공식', '끝까지 보게 해요'],
+    C: ['내 얘기로 만드는 공식', '팔로우로 이어져요']
+  };
+
+  var CATS = [
+    { d: '3개월', w: '100만원', key: 'abroad', name: '해외생활', place: true, field: '나라·도시', ph: '예) 호주 멜버른', p: '3개월', m: '100만원',
+      targets: ['워홀러', '유학생', '이민자', '해외 직장인', '한달살기러'],
+      chips: ['호주 워홀 브이로그', '캐나다 집 구하는 방법', '일본 생활 일상 기록'],
+      t: [[2, '{n} 워홀 끝나면 남는 건 사진뿐?'], [2, '{n} 가기 전 알았으면 했던 것'], [3, '{n} {t:이} 가장 후회하는 것 1위'], [4, '{n} 첫 달 생활비 {m} 현실'], [5, '{n} 비자 끝나기 전에 이것부터'], [6, '{n:이} 천국인 줄 알았는데요'], [7, '{n}에서 한국인끼리만 지내면 손해'], [8, '한국 vs {n}, 월급 차이 실화'], [9, '{n} 현지인만 아는 생활 꿀팁'], [10, '요즘 {n} 렌트비 근황'], [11, '{n} __년 살고 알게 된 것'], [12, '영어 0이었던 제가 {n}에서'], [13, '{n}에서 혼자 아팠던 날'], [14, '{n} 마트에서 계산하다 멈춘 이유'], [15, '{n} 가는 {t}에게 꼭 할 말'], [1, '{n} {t:이라면} 이것부터 봐요']] },
+    { w: '50만원', key: 'travel', name: '여행', place: true, field: '여행지', ph: '예) 오사카', p: '3박 4일', m: '50만원',
+      targets: ['자유여행러', '혼행러', '커플', '가족여행'],
+      chips: ['오사카 여행 브이로그', '제주도 맛집 추천', '유럽 여행 경비 정리'],
+      t: [[2, '{n} 여행 가서 제일 후회한 것'], [3, '{n} 여행 실수 1위'], [4, '{n} {p}, {m:으로} 다녀왔어요'], [5, '{n} 가기 전 무조건 할 것'], [7, '{n} 가서 맛집 줄 서면 손해예요'], [8, '{n} 패키지 vs 자유여행'], [9, '{n} 현지인 추천 숨은 동네'], [10, '요즘 {n} 물가 근황'], [13, '{n} 혼자 가서 울컥했던 순간'], [14, '{n} 공항 도착하자마자 당황한 것'], [15, '{n} 처음 가는 {t}에게']] },
+    { d: '1년', w: '1천만원', g: '1천만원', key: 'money', name: '재테크·돈', field: '상황', ph: '예) 월급 250 사회초년생', p: '1년', m: '1천만원',
+      targets: ['직장인', '사회초년생', '30대', '신혼부부'],
+      chips: ['월급 관리하는 방법', '적금 추천', '30대 재테크 일상'],
+      t: [[2, '월급날 이거 안 하면 1년 손해'], [3, '{t:이} 돈 모을 때 하는 실수 1위'], [4, '{p} 만에 {m} 모았어요, 이렇게'], [6, '적금이 답인 줄 알았는데요'], [7, '아끼기만 하면 돈 안 모여요'], [8, '돈 모으는 사람 vs 안 모이는 사람'], [12, '통장 잔고 0원이던 제가 {m}'], [13, '월급 들어오자마자 사라지는 분?']] },
+    { d: '3주', g: '5kg', key: 'diet', name: '다이어트·운동', field: '상황·목표', ph: '예) 퇴근 후 홈트', p: '3주', m: '5kg',
+      targets: ['직장인', '다이어터', '30대', '운동 초보'],
+      chips: ['다이어트 식단 짜는 법', '홈트 루틴 추천', '운동 일상 브이로그'],
+      t: [[2, '이거 먹으면 운동한 거 다 날려요'], [3, '{t:이} 살 안 빠지는 이유 1위'], [4, '{p} 만에 {m} 뺀 식단, 딱 이것'], [7, '굶을수록 살 안 빠지는 이유'], [8, '살 빠지는 사람 vs 안 빠지는 사람'], [12, '운동 0이던 제가 {p} 만에 바뀐 것'], [13, '다이어트 3일 차, 저만 이래요?'], [14, '체중계 올라갔다가 멈칫한 아침']] },
+    { d: '2주', w: '1만원대', key: 'beauty', name: '뷰티·피부', field: '피부 고민', ph: '예) 턱 트러블', p: '2주', m: '1만원대',
+      targets: ['지성 피부', '건성 피부', '30대', '직장인'],
+      chips: ['피부 관리 루틴', '선크림 추천', '스킨케어 정리'],
+      t: [[2, '이 순서로 바르면 다 소용없어요'], [3, '{t:이} 많이 하는 피부 실수 1위'], [4, '{m} 제품으로 {p} 만에 달라졌어요'], [7, '비싼 화장품이 답이 아니었어요'], [8, '피부 좋은 사람 vs 아닌 사람 습관'], [9, '피부과 다니는 사람만 아는 것'], [13, '화장 지우고 거울 보다 현타']] },
+    { d: '한 달', w: '5만원', key: 'fashion', name: '패션·코디', field: '체형·상황', ph: '예) 키 158 출근룩', p: '한 달', m: '5만원',
+      targets: ['키 작은 사람', '직장인', '30대', '통통족'],
+      chips: ['출근룩 코디 추천', '여름 옷 정리', '데일리룩 기록'],
+      t: [[2, '이 핏 입으면 키 5cm 손해예요'], [3, '{t:이} 많이 하는 코디 실수 1위'], [4, '{m:으로} 한 달 출근룩 끝내기'], [7, '옷 많을수록 입을 게 없는 이유'], [8, '세련된 사람 vs 애매한 사람 한 끗'], [13, '옷장 앞에서 30분 서 있는 분?'], [15, '{t:이라면} 이 바지부터 사요']] },
+    { key: 'parenting', name: '육아·교육', field: '아이 나이', ph: '예) 5살', p: '하루 10분', m: '3가지',
+      targets: ['초보 엄마', '워킹맘', '아빠', '초등맘'],
+      chips: ['육아하면서 부업하는 방법', '아이 책 추천', '육아 일상 브이로그'],
+      t: [[2, '아이한테 이 말 하면 손해예요'], [3, '{t:이} 제일 후회하는 육아 1위'], [4, '{p} 놀이로 달라진 우리 아이'], [7, '많이 놀아줄수록 좋은 게 아니래요'], [9, '선생님들만 아는 아이 습관 비밀'], [13, '육아하다 혼자 울어본 적 있나요?'], [15, '오늘도 버틴 {t}에게']] },
+    { w: '1만원', key: 'food', name: '요리·맛집', place: true, field: '지역', ph: '예) 성수동', p: '5분', m: '1만원',
+      targets: ['자취생', '직장인', '요리 초보', '신혼부부'],
+      chips: ['자취 요리 레시피', '성수 맛집 추천', '집밥 기록'],
+      t: [[2, '이거 넣으면 요리 다 망쳐요'], [3, '{t:이} 많이 하는 요리 실수 1위'], [4, '{m:으로} {p} 만에 끝내는 한 끼'], [7, '비싼 재료가 맛을 내는 게 아니에요'], [9, '{n} 현지인만 가는 진짜 맛집'], [10, '요즘 {n} 웨이팅 근황'], [13, '배달 앱 또 켠 분, 저만 그래요?']] },
+    { d: '3개월', key: 'career', name: '커리어·자기계발', field: '직무', ph: '예) 마케터 3년 차', p: '3개월', m: '연봉 500',
+      targets: ['직장인', '퇴사 준비생', '취준생', '프리랜서'],
+      chips: ['이직 준비하는 방법', '자기계발 루틴', '퇴사 후 일상 기록'],
+      t: [[2, '이직할 때 이거 모르면 {m} 손해'], [3, '면접에서 떨어지는 이유 1위'], [4, '{p} 만에 {m} 올린 이직 과정'], [5, '연말 전에 이력서부터 고쳐요'], [7, '열심히 일할수록 연봉 안 오르는 이유'], [8, '승진하는 사람 vs 제자리인 사람'], [12, '스펙 0이던 제가 이직한 과정'], [13, '출근길에 퇴사 생각한 분?']] },
+    { d: '30일', g: '팔로워 1만', key: 'sns', name: 'SNS·마케팅', field: '계정 주제', ph: '예) 해외생활 계정', p: '30일', m: '팔로워 1만',
+      targets: ['초보 크리에이터', '사장님', '1인 사업자', '프리랜서'],
+      chips: ['인스타 팔로워 늘리는 팁', '릴스 잘 만드는 방법', 'SNS 운영 일상'],
+      t: [[2, '이렇게 올리면 조회수 다 날려요'], [3, '{t:이} 계정 망치는 실수 1위'], [4, '{p} 만에 {m}, 이것만 바꿨어요'], [6, '팔로워가 답인 줄 알았는데요'], [7, '매일 올릴수록 안 크는 이유'], [8, '조회수 터지는 계정 vs 멈춘 계정'], [12, '팔로워 0에서 {m}까지'], [13, '좋아요 3개 받은 날, 저만요?']] },
+    { d: '3개월', g: '월 100만원', key: 'sidejob', name: '부업·사업', field: '업종', ph: '예) 온라인 스토어', p: '3개월', m: '월 100만원',
+      targets: ['직장인', '1인 사업자', '사장님', '주부'],
+      chips: ['부업 시작하는 방법', '창업 아이템 추천', '1인 사업 일상'],
+      t: [[2, '부업 시작할 때 이거 하면 손해'], [3, '{t:이} 부업에서 하는 실수 1위'], [4, '{p} 만에 {m} 만든 부업 구조'], [7, '아이템보다 중요한 게 있어요'], [8, '돈 버는 부업 vs 시간만 쓰는 부업'], [12, '퇴근 후 0원에서 {m}까지'], [13, '부업하다 지쳐서 다 놓고 싶던 날']] },
+    { d: '3개월', key: 'study', name: '공부·영어', field: '목표', ph: '예) 토익 800', p: '3개월', m: '하루 20분',
+      targets: ['직장인', '학생', '왕초보', '유학 준비생'],
+      chips: ['영어 공부하는 방법', '단어 암기 팁', '공부 기록 브이로그'],
+      t: [[2, '이렇게 공부하면 시간만 날려요'], [3, '{t:이} 영어 포기하는 이유 1위'], [4, '{m}씩 {p}, 이렇게 달라졌어요'], [7, '단어 많이 외울수록 말 안 나와요'], [8, '영어 느는 사람 vs 제자리인 사람'], [12, '영어 0이던 제가 {p} 만에'], [13, '외국인 앞에서 얼어붙은 분?']] },
+    { d: '1년', key: 'love', name: '연애·관계', field: '상황', ph: '예) 장거리 연애', p: '1년', m: '3가지',
+      targets: ['30대', '연애 초보', '직장인', '커플'],
+      chips: ['연애 잘하는 방법', '데이트 코스 추천', '커플 일상 브이로그'],
+      t: [[2, '이 말 하면 관계 다 망쳐요'], [3, '{t:이} 연애에서 하는 실수 1위'], [4, '오래가는 커플의 습관 {m}'], [6, '맞춰주면 되는 줄 알았는데요'], [7, '잘해줄수록 멀어지는 이유'], [8, '오래가는 커플 vs 금방 끝나는 커플'], [13, '읽씹당하고 폰만 본 밤']] },
+    { w: '10만원', key: 'home', name: '살림·인테리어', field: '집 형태', ph: '예) 6평 원룸', p: '하루 10분', m: '10만원',
+      targets: ['자취생', '신혼부부', '원룸러', '주부'],
+      chips: ['원룸 인테리어 방법', '살림템 추천', '청소 루틴 기록'],
+      t: [[2, '이거 사면 공간만 날려요'], [3, '{t:이} 제일 후회하는 살림템 1위'], [4, '{m:으로} 원룸 분위기 바꾸기'], [7, '정리템 살수록 집이 좁아져요'], [8, '깔끔한 집 vs 늘 어수선한 집 한 끗'], [12, '{p:으로} 달라진 우리 집'], [13, '청소해도 티 안 나는 분?']] }
+  ];
+
+  var PLACES = ['뉴질랜드', '아일랜드', '싱가포르', '말레이시아', '필리핀', '캐나다', '베트남', '스페인', '이탈리아', '프랑스', '독일', '영국', '미국', '호주', '일본', '대만', '태국', '중국', '홍콩', '유럽', '시드니', '멜버른', '브리즈번', '퍼스', '골드코스트', '애들레이드', '오클랜드', '퀸스타운', '웰링턴', '크라이스트처치', '밴쿠버', '토론토', '몬트리올', '도쿄', '오사카', '후쿠오카', '교토', '삿포로', '오키나와', '런던', '더블린', '파리', '베를린', '뉴욕', '하와이', 'LA', '방콕', '치앙마이', '다낭', '나트랑', '하노이', '호치민', '발리', '세부', '타이베이', '제주도', '제주', '부산', '서울', '성수동', '성수', '강남', '홍대'];
+
+  var TAG_LABEL = { '숫': '숫자', '반': '반전', '손': '손실', '공': '공감', '호': '호기심', '비': '비교', '권': '경험' };
+  var DNA = ['숫', '반', '손'];
+  var MAX_LEN = 24, WARN_LEN = 20;
+
+  /* =========================================================
+     한국어 처리
+     ========================================================= */
+  function lastInfo(w) {
+    w = String(w).replace(/[\s.,!?~'"’”)\]]+$/, '');
+    if (!w) return { b: false, r: false };
+    if (/kg$/i.test(w)) return { b: true, r: false };
+    var c = w.charCodeAt(w.length - 1);
+    if (c >= 0xAC00 && c <= 0xD7A3) {
+      var j = (c - 0xAC00) % 28;
+      return { b: j !== 0, r: j === 8 };
+    }
+    var ch = w.charAt(w.length - 1);
+    if (/[0-9]/.test(ch)) {
+      if (ch === '0') return { b: true, r: false }; /* 십·백·천·만 */
+      return { b: '013678'.indexOf(ch) > -1, r: '178'.indexOf(ch) > -1 };
+    }
+    return { b: false, r: false };
+  }
+
+  var JOSA = { '이': ['이', '가'], '은': ['은', '는'], '을': ['을', '를'], '과': ['과', '와'], '이라면': ['이라면', '라면'], '이면': ['이면', '면'] };
+
+  function josa(w, j) {
+    var i = lastInfo(w);
+    if (j === '으로') return (i.b && !i.r) ? '으로' : '로';
+    var p = JOSA[j];
+    if (!p) return j;
+    return i.b ? p[0] : p[1];
+  }
+
+  function fill(tpl, ctx) {
+    var miss = false;
+    var out = tpl.replace(/\{(k|t|n|s|p|m|d|w|g)(?::([^}]+))?\}/g, function (_, v, j) {
+      var val = ctx[v];
+      if (!val) { miss = true; return ''; }
+      return j ? val + josa(val, j) : val;
+    });
+    return miss ? null : out.replace(/\s+/g, ' ').trim();
+  }
+
+  var TAILS = ['브이로그', 'vlog', '노하우', '가이드', '이야기', '데일리', '방법', '정리', '추천', '후기', '꿀팁', '일상', '기록', '모음', '레시피', '루틴', '팁'];
+
+  function extractTopic(title) {
+    var t = title.replace(/\s+/g, ' ').trim(), guard = 0, changed = true;
+    while (changed && guard++ < 6) {
+      changed = false;
+      if (/\s법$/.test(t)) { t = t.replace(/\s법$/, '').trim(); changed = true; continue; }
+      for (var i = 0; i < TAILS.length; i++) {
+        var tl = TAILS[i];
+        if (t.length > tl.length && t.toLowerCase().slice(-tl.length) === tl.toLowerCase()) {
+          t = t.slice(0, -tl.length).trim(); changed = true; break;
+        }
+      }
+    }
+    var words = t.split(' ').filter(Boolean);
+    var last = words[words.length - 1] || '';
+    if (/하는$/.test(last) && last.length > 3) words[words.length - 1] = last.slice(0, -2);
+    else if (/는$/.test(last) && words.length > 1) words.pop();
+    words = words.filter(function (w) { return w !== '잘'; });
+    var k = words.join(' ').trim();
+    return k || title.trim();
+  }
+
+  function findPlace(text) {
+    if (!text) return '';
+    for (var i = 0; i < PLACES.length; i++) if (text.indexOf(PLACES[i]) > -1) return PLACES[i];
+    return '';
+  }
+
+  var ACTION_RE = /(워홀|유학|이민|여행|살이|생활|다이어트|운동|홈트|헬스|러닝|공부|육아|부업|사업|창업|이직|취업|퇴사|연애|살림|요리|청소|자취|준비|관리|운영|재테크|코디|피부)/;
+  var JOSA_TAIL = /(으로|에서|에게|까지|부터|처럼|이랑|이나|이|가|은|는|을|를|로|에|도|만|의|과|와)$/;
+
+  function hasDup(s) {
+    if (/vs/i.test(s)) return false;
+    var seen = {}, toks = s.replace(/[,.?!~'"…]/g, ' ').split(/\s+/);
+    for (var i = 0; i < toks.length; i++) {
+      var w = toks[i];
+      if (!w) continue;
+      var core = w.length > 2 ? w.replace(JOSA_TAIL, '') : w;
+      if (core.length < 2) continue;
+      if (seen[core]) return true;
+      seen[core] = 1;
+    }
+    return false;
+  }
+
+  var RE_NUM = /\d|__|한 ?가지|두 ?가지|세 ?가지|하나/;
+  var RE_REV = /(줄 알았는데|알고 보니|사실|오히려|했더니|의외|아니었|아니에요|아니더라|반대로|달라졌|바뀐|되는 줄)/;
+  var RE_LOSS = /(후회|손해|실수|날려|날린|놓치|망하|망쳐|망한|늦|아까|모르면|함정|소용없|포기|떨어지)/;
+
+  function detectTags(s, base) {
+    var tags = base.slice();
+    function add(x) { if (tags.indexOf(x) < 0) tags.push(x); }
+    if (RE_NUM.test(s)) add('숫');
+    if (RE_REV.test(s)) add('반');
+    if (RE_LOSS.test(s)) add('손');
+    tags.sort(function (a, b) {
+      return (DNA.indexOf(a) < 0 ? 9 : DNA.indexOf(a)) - (DNA.indexOf(b) < 0 ? 9 : DNA.indexOf(b));
+    });
+    return tags;
+  }
+
+  function scoreOf(tags, len, isCat) {
+    var dna = 0, etc = 0;
+    tags.forEach(function (t) { if (DNA.indexOf(t) > -1) dna++; else etc++; });
+    return dna * 3 + etc + (len <= WARN_LEN ? 2 : 0) + (isCat ? 1 : 0) + (dna >= 2 ? 2 : 0);
+  }
+
+  function shuffle(a) {
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var x = a[i]; a[i] = a[j]; a[j] = x;
+    }
+    return a;
+  }
+
+  function buildFormula(f, ctx, cat) {
+    var src = f.t.map(function (s) { return { s: s, c: false }; });
+    cat.t.forEach(function (x) { if (x[0] === f.id) src.push({ s: x[1], c: true }); });
+    var list = [], seen = {};
+    src.forEach(function (o) {
+      var tpl = o.s, verb = false;
+      if (tpl.charAt(0) === '@') { verb = true; tpl = tpl.slice(1); }
+      if (verb && !ctx.action) return;
+      var s = fill(tpl, ctx);
+      if (!s || s.length > MAX_LEN || seen[s] || hasDup(s)) return;
+      seen[s] = 1;
+      var tags = detectTags(s, f.tags);
+      list.push({ s: s, tags: tags, score: scoreOf(tags, s.length, o.c) });
+    });
+    shuffle(list);
+    list.sort(function (a, b) { return b.score - a.score; });
+    return list;
+  }
+
+  /* =========================================================
+     진단
+     ========================================================= */
+  var EMO_RE = /(후회|손해|실수|망|현타|충격|절대|몰랐|함정|위험|조심|주의|울|서러|힘들|최악|실패|놓치|날려|소름|헉|ㅠ|!)/;
+  var ABSTRACT_RE = /(인생|행복|성장|의미|진정한|가치|자유|꿈|열정)/;
+  var GENERIC_TARGET_RE = /(러$|러\s|생$|생\s|초보|엄마|아빠|맘|직장인|사장님|프리랜서|사람|분들|커플|부부|학생|족|대$|대\s|크리에이터)/;
+
+  function diagnose(title, cat, place) {
+    var out = [], t = title.trim();
+    if (cat.place && cat.key !== 'food' && !place) out.push('어디 얘기인지 안 보여요 — 나라 이름 하나가 클릭 이유가 돼요');
+    if (/(브이로그|vlog|일상|기록|데일리)\s*$/i.test(t)) out.push('일상 기록으로 끝나요 — 남의 일기는 넘겨요');
+    if (/(방법|법|정리|추천|후기|팁|노하우|가이드|모음)\s*$/.test(t)) out.push('뻔한 마무리예요 — \'방법\'으로 끝나면 멈출 이유가 없어요');
+    if (!RE_NUM.test(t)) out.push('숫자가 없어요 — 구체적이어야 믿어요');
+    if (!EMO_RE.test(t) && !RE_LOSS.test(t)) out.push('감정·경고가 없어요 — 후회·손해가 궁금증을 만들어요');
+    var hasTarget = cat.targets.some(function (x) { return t.indexOf(x) > -1; }) || GENERIC_TARGET_RE.test(t);
+    if (!hasTarget) out.push('누구 얘기인지 안 보여요 — \'나한테 하는 말\'이어야 멈춰요');
+    if (ABSTRACT_RE.test(t)) out.push('추상적이에요 — 장면이 안 그려져요');
+    if (t.length > WARN_LEN) out.push('너무 길어요 — 첫 화면에서 다 안 읽혀요');
+    return out.slice(0, 4);
+  }
+
+  /* =========================================================
+     렌더링
+     ========================================================= */
+  var state = { cat: CATS[0], target: '', userRan: false, cards: [] };
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  function highlight(s, k) {
+    var e = esc(s);
+    if (k) {
+      var ek = esc(k), i = e.indexOf(ek);
+      if (i > -1) e = e.slice(0, i) + '<span class="ddc-k">' + ek + '</span>' + e.slice(i + ek.length);
+    }
+    return e.replace(/__/g, '<span class="ddc-blank">__</span>');
+  }
+
+  function renderFormulaIntro() {
+    var html = '';
+    ['A', 'B', 'C'].forEach(function (g) {
+      html += '<div class="ddc-group"><div class="ddc-group-h">' + GROUPS[g][0] + ' <small>' + GROUPS[g][1] + '</small></div><div class="ddc-fgrid">';
+      FORMULAS.filter(function (f) { return f.g === g; }).forEach(function (f) {
+        html += '<div class="ddc-card ddc-fcard"><span class="ddc-pill">공식 ' + f.id + ' · ' + esc(f.name) + '</span>' +
+          (f.core ? '<span class="ddc-core">핵심</span>' : '') +
+          '<p>' + esc(f.desc) + '</p><em>예) ' + highlight(f.ex, '') + '</em></div>';
+      });
+      html += '</div></div>';
+    });
+    $('ddc-fintro').innerHTML = html;
+  }
+
+  function renderCats() {
+    $('ddc-cats').innerHTML = CATS.map(function (c) {
+      return '<button type="button" class="ddc-chipbtn' + (c === state.cat ? ' is-on' : '') + '" data-cat="' + c.key + '">' + esc(c.name) + '</button>';
+    }).join('');
+  }
+
+  function renderCatParts() {
+    var c = state.cat;
+    $('ddc-sit-label').textContent = c.field + ' (선택)';
+    $('ddc-sit').placeholder = c.ph;
+    if (!state.target || c.targets.indexOf(state.target) < 0) state.target = '';
+    $('ddc-targets').innerHTML = c.targets.map(function (t) {
+      var on = state.target ? state.target === t : false;
+      return '<button type="button" class="ddc-chipbtn' + (on ? ' is-on' : '') + '" data-target="' + esc(t) + '">' + esc(t) + '</button>';
+    }).join('');
+    $('ddc-ex').innerHTML = '<span>이런 제목을 넣어보세요</span>' + c.chips.map(function (x) {
+      return '<button type="button" class="ddc-chipbtn" data-chip="' + esc(x) + '">' + esc(x) + '</button>';
+    }).join('');
+  }
+
+  function tagsHTML(tags) {
+    return tags.slice(0, 3).map(function (t) { return '<span class="ddc-mini">' + TAG_LABEL[t] + '</span>'; }).join('');
+  }
+
+  function cardHTML(idx, opt) {
+    var card = state.cards[idx], item = card.list[card.i], f = card.f;
+    var badge = opt.rank
+      ? '<span class="ddc-rank">TOP ' + opt.rank + '</span><span class="ddc-pill">' + esc(f.name) + '</span>'
+      : '<span class="ddc-pill">공식 ' + f.id + ' · ' + esc(f.name) + '</span>' + (f.core ? '<span class="ddc-core">핵심</span>' : '');
+    if (!item) {
+      return '<div class="ddc-card ddc-rcard"><div class="ddc-rhead"><div class="ddc-rbadges">' + badge + '</div></div>' +
+        '<p class="ddc-empty">이 공식은 지금 제목으로 만들기 어려웠어요. 제목을 조금 짧게 줄이거나 나라·대상을 넣어볼까요?</p></div>';
+    }
+    return '<div class="ddc-card ddc-rcard" data-card="' + idx + '">' +
+      '<div class="ddc-rhead"><div class="ddc-rbadges">' + badge + '</div><button type="button" class="ddc-copy" data-act="copy">복사</button></div>' +
+      '<p class="ddc-orig">' + esc(card.orig) + '</p>' +
+      '<p class="ddc-out">' + highlight(item.s, card.k) + '</p>' +
+      '<p class="ddc-tip">' + esc(f.desc) + '</p>' +
+      '<div class="ddc-dna">' + tagsHTML(item.tags) + '</div>' +
+      '<div class="ddc-rfoot">' +
+        (card.list.length > 1 ? '<button type="button" class="ddc-next" data-act="next">다른 문장 →</button>' : '') +
+        '<span class="ddc-count">' + (card.i + 1) + ' / ' + card.list.length + '</span>' +
+        '<span class="ddc-len' + (item.s.length > WARN_LEN ? ' is-over' : '') + '">' + item.s.length + '자</span>' +
+      '</div></div>';
+  }
+
+  function convert(isExample) {
+    var title = $('ddc-title').value.replace(/\s+/g, ' ').trim();
+    if (!title) { $('ddc-err').classList.add('is-on'); $('ddc-title').focus(); return; }
+    $('ddc-err').classList.remove('is-on');
+
+    var cat = state.cat, sit = $('ddc-sit').value.trim();
+    var k = extractTopic(title);
+    var place = '';
+    if (cat.place) place = findPlace(sit) || (cat.key === 'food' ? sit : '') || findPlace(title) || (cat.key !== 'food' ? sit : '');
+
+    var ctx = {
+      k: k, t: state.target || cat.targets[0], n: place, s: cat.place ? '' : sit,
+      p: cat.p, m: cat.m, d: cat.d || '', w: cat.w || '', g: cat.g || '',
+      action: ACTION_RE.test(k) || /(하는|하기|하면서|는 법|는 방법)/.test(title)
+    };
+
+    /* 진단 */
+    var diag = diagnose(title, cat, place);
+    $('ddc-tags').innerHTML = diag.length
+      ? diag.map(function (d) { return '<span class="ddc-tag">' + esc(d) + '</span>'; }).join('')
+      : '<span class="ddc-tag is-good">기본기는 좋아요! 공식으로 한 번 더 세게 만들어볼게요</span>';
+
+    /* 결과 */
+    state.cards = [];
+    var built = FORMULAS.map(function (f) { return { f: f, list: buildFormula(f, ctx, cat) }; });
+    built.forEach(function (b) { b.j = b.list.length ? b.list[0].score + Math.random() * 1.5 : 0; });
+    var tops = built.filter(function (b) { return b.list.length; }).sort(function (a, b) { return b.j - a.j; }).slice(0, 5);
+
+    var topHTML = tops.map(function (b, r) {
+      state.cards.push({ f: b.f, list: b.list, i: 0, k: k, orig: title });
+      return cardHTML(state.cards.length - 1, { rank: r + 1 });
+    }).join('');
+    $('ddc-top').innerHTML = topHTML || '<p class="ddc-empty">문장을 만들지 못했어요. 제목을 조금 짧게 줄여볼까요?</p>';
+
+    var allHTML = '';
+    ['A', 'B', 'C'].forEach(function (g) {
+      allHTML += '<p class="ddc-all-g">' + GROUPS[g][0] + '</p>';
+      built.filter(function (b) { return b.f.g === g; }).forEach(function (b) {
+        state.cards.push({ f: b.f, list: b.list, i: 0, k: k, orig: title });
+        allHTML += cardHTML(state.cards.length - 1, {});
+      });
+    });
+    $('ddc-all').innerHTML = allHTML;
+
+    /* 상태 메시지 */
+    if (isExample) {
+      $('ddc-status').innerHTML = '<span class="ddc-pill">예시</span> 아래는 \'' + esc(title) + '\'를 바꾼 예시 결과예요. 내 제목을 넣고 버튼을 눌러보세요.';
+    } else {
+      state.userRan = true;
+      var info = '주제어 <b>' + esc(k) + '</b>' +
+        (place ? ' · ' + esc(cat.field.split('·')[0]) + ' <b>' + esc(place) + '</b>' : '') +
+        ' · 대상 <b>' + esc(ctx.t) + '</b>' + josa(ctx.t, '으로') + ' 바꿨어요.';
+      $('ddc-status').innerHTML = info;
+    }
+  }
+
+  function updateCard(el) {
+    var idx = +el.getAttribute('data-card'), card = state.cards[idx];
+    var item = card.list[card.i], out = el.querySelector('.ddc-out');
+    out.classList.add('is-fade');
+    setTimeout(function () {
+      out.innerHTML = highlight(item.s, card.k);
+      el.querySelector('.ddc-dna').innerHTML = tagsHTML(item.tags);
+      el.querySelector('.ddc-count').textContent = (card.i + 1) + ' / ' + card.list.length;
+      var len = el.querySelector('.ddc-len');
+      len.textContent = item.s.length + '자';
+      len.classList.toggle('is-over', item.s.length > WARN_LEN);
+      out.classList.remove('is-fade');
+    }, 150);
+  }
+
+  function copyText(txt, btn, textEl) {
+    function done(label) {
+      btn.textContent = label || '복사됐어요!';
+      btn.classList.add('is-done');
+      setTimeout(function () { btn.textContent = '복사'; btn.classList.remove('is-done'); }, label ? 2500 : 1500);
+    }
+    function fallback() {
+      var ok = false, ta = document.createElement('textarea');
+      ta.value = txt;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed'; ta.style.top = '0'; ta.style.left = '0'; ta.style.opacity = '0';
+      root.appendChild(ta);
+      ta.select();
+      try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+      root.removeChild(ta);
+      if (ok) { done(); return; }
+      try {
+        var r = document.createRange();
+        r.selectNodeContents(textEl);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(r);
+      } catch (e) {}
+      done('선택됨 · 복사하세요');
+    }
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(txt).then(function () { done(); }, fallback);
+    else fallback();
+  }
+
+  function scrollToId(id) {
+    var el = $(id);
+    if (!el) return;
+    var y = el.getBoundingClientRect().top + (window.pageYOffset || document.documentElement.scrollTop) - 80;
+    try { window.scrollTo({ top: y, behavior: 'smooth' }); } catch (e) { window.scrollTo(0, y); }
+  }
+
+  /* =========================================================
+     이벤트
+     ========================================================= */
+  root.addEventListener('click', function (e) {
+    var el = e.target.closest ? e.target.closest('[data-cat],[data-target],[data-chip],[data-act],[data-scroll]') : null;
+    if (!el || !root.contains(el)) return;
+
+    if (el.hasAttribute('data-scroll')) { e.preventDefault(); scrollToId(el.getAttribute('data-scroll')); return; }
+
+    if (el.hasAttribute('data-cat')) {
+      var key = el.getAttribute('data-cat');
+      for (var i = 0; i < CATS.length; i++) if (CATS[i].key === key) state.cat = CATS[i];
+      renderCats();
+      renderCatParts();
+      if (state.userRan && $('ddc-title').value.trim()) convert(false);
+      return;
+    }
+
+    if (el.hasAttribute('data-target')) {
+      var t = el.getAttribute('data-target');
+      state.target = state.target === t ? '' : t;
+      renderCatParts();
+      if (state.userRan && $('ddc-title').value.trim()) convert(false);
+      return;
+    }
+
+    if (el.hasAttribute('data-chip')) { $('ddc-title').value = el.getAttribute('data-chip'); convert(false); return; }
+
+    var act = el.getAttribute('data-act'), cardEl = el.closest('[data-card]');
+    if (!cardEl) return;
+    var card = state.cards[+cardEl.getAttribute('data-card')];
+    if (act === 'next') { card.i = (card.i + 1) % card.list.length; updateCard(cardEl); }
+    if (act === 'copy') { copyText(card.list[card.i].s, el, cardEl.querySelector('.ddc-out')); }
+  });
+
+  $('ddc-go').addEventListener('click', function () { convert(false); });
+  $('ddc-title').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.keyCode === 13) { e.preventDefault(); convert(false); }
+  });
+  $('ddc-sit').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.keyCode === 13) { e.preventDefault(); convert(false); }
+  });
+  $('ddc-toggle').addEventListener('click', function () {
+    var all = $('ddc-all'), open = all.classList.toggle('is-open');
+    this.textContent = open ? '15공식 전체 접기 ▴' : '15공식 전체 보기 ▾';
+    this.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+
+  /* 시작 — 예시 결과 미리 보여주기 */
+  renderFormulaIntro();
+  renderCats();
+  renderCatParts();
+  $('ddc-title').value = '호주 워홀 브이로그';
+  convert(true);
+})();
+</script>
+<!-- ===== 임베드 코드 끝 ===== -->
+</body>
+</html>
