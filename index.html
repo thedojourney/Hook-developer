@@ -135,6 +135,35 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
 #ddc .ddc-all-g{font-weight:700;font-size:16px;margin:26px 0 12px;}
 
 /* 4 elements */
+#ddc .ddc-keep{padding:24px 26px;margin:6px 0 4px;background:var(--navy)!important;border-color:var(--navy)!important;color:#fff;}
+#ddc .ddc-keep h3,#ddc .ddc-check h3{font-size:18px;font-weight:700;margin-bottom:6px;}
+#ddc .ddc-keep .ddc-keep-lead{color:rgba(255,255,255,.7);}
+#ddc .ddc-keep-lead{font-size:14px;color:var(--sub);margin-bottom:14px;}
+#ddc .ddc-keep-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+#ddc .ddc-kitem{display:flex;align-items:center;gap:10px;text-align:left;background:rgba(255,255,255,.08)!important;border:1px solid rgba(255,255,255,.12)!important;border-radius:10px;padding:12px 14px;color:#fff!important;font-weight:700;font-size:15px;line-height:1.4;transition:background .15s;}
+#ddc .ddc-kitem:hover{background:rgba(255,255,255,.16)!important;}
+#ddc .ddc-kitem.is-done{background:var(--blue)!important;border-color:var(--blue)!important;}
+#ddc .ddc-kitem .ddc-mini{flex:0 0 auto;background:rgba(42,164,244,.22);color:#8FD3FF;}
+#ddc .ddc-why{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+#ddc .ddc-why li{display:flex;gap:14px;padding:20px;}
+#ddc .ddc-why li:last-child{grid-column:1 / -1;}
+#ddc .ddc-wno{flex:0 0 28px;width:28px;height:28px;border-radius:99px;background:var(--blue);color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;}
+#ddc .ddc-why b{display:block;font-size:17px;margin-bottom:4px;}
+#ddc .ddc-why p{font-size:14px;color:var(--sub);line-height:1.55;margin-bottom:10px;}
+#ddc .ddc-vs{display:flex;flex-direction:column;gap:6px;font-size:14px;line-height:1.45;}
+#ddc .ddc-vs span{border-radius:8px;padding:7px 10px;}
+#ddc .ddc-x{background:#F4F6F8;color:#8A99A8;text-decoration:line-through;}
+#ddc .ddc-x::before{content:'넘김  ';text-decoration:none;display:inline-block;margin-right:6px;font-weight:700;font-size:12px;}
+#ddc .ddc-o{background:var(--tint);color:var(--navy);font-weight:700;}
+#ddc .ddc-o::before{content:'계속 봄';display:inline-block;margin-right:6px;font-weight:700;font-size:12px;color:var(--blue-d);}
+#ddc .ddc-check{padding:24px 26px;margin-top:12px;}
+#ddc #ddc-checks{display:flex;flex-direction:column;gap:8px;}
+#ddc .ddc-ck{display:flex;align-items:center;gap:10px;text-align:left;border:1px solid var(--line)!important;background:#fff!important;border-radius:10px;padding:12px 14px;font-size:15px;transition:all .15s;}
+#ddc .ddc-ck::before{content:'';flex:0 0 20px;width:20px;height:20px;border:2px solid #C5D0DB;border-radius:6px;background:#fff;}
+#ddc .ddc-ck.is-on{border-color:var(--blue)!important;background:var(--tint)!important;font-weight:700;}
+#ddc .ddc-ck.is-on::before{background:var(--blue);border-color:var(--blue);box-shadow:inset 0 0 0 3px #fff;}
+#ddc .ddc-ck-done{display:none;margin-top:12px;font-weight:700;color:#1E8A4C;}
+#ddc .ddc-ck-done.is-on{display:block;}
 #ddc .ddc-four{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
 #ddc .ddc-four li{padding:22px 20px;}
 #ddc .ddc-four li span{display:block;font-size:14px;color:var(--sub);margin-bottom:10px;}
@@ -173,6 +202,8 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
 #ddc .ddc-links a{min-height:0;}
 }
 @media (max-width:640px){
+#ddc .ddc-keep-list,#ddc .ddc-why{grid-template-columns:1fr;}
+#ddc .ddc-keep,#ddc .ddc-check{padding:20px;}
 #ddc .ddc-cta{width:100%;justify-content:center;}
 #ddc .ddc-four{grid-template-columns:1fr 1fr;}
 #ddc .ddc-letter{padding:26px 22px;}
@@ -264,6 +295,11 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
       <h2 class="ddc-h2">가장 센 후킹 TOP 5</h2>
       <p class="ddc-lead">숫자·반전·손실이 많이 들어간 순서예요. 별로면 [다른 문장 →]으로 넘겨보세요. 그대로 쓰는 것보다 두세 개 섞어 쓰면 더 좋아요.</p>
       <div id="ddc-top"></div>
+      <div class="ddc-card ddc-keep">
+        <h3>멈췄으면, <span class="ddc-c-blue">다음 한 줄</span>이 끝까지 보게 해요</h3>
+        <p class="ddc-keep-lead">후킹 바로 뒤에 말하거나 자막으로 띄워요. 답은 최대한 뒤로 미루세요. 누르면 복사돼요.</p>
+        <div class="ddc-keep-list" id="ddc-keep"></div>
+      </div>
       <button class="ddc-toggle" id="ddc-toggle" type="button" aria-expanded="false">15공식 전체 보기 ▾</button>
       <div class="ddc-all" id="ddc-all"></div>
     </section>
@@ -273,6 +309,21 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
       <h2 class="ddc-h2">떡상 15공식 한눈에 보기</h2>
       <p class="ddc-lead">잘 터진 후킹을 뜯어보면 <b>숫자·반전·손실</b> 중 두 개는 꼭 들어 있어요. 다 외울 필요 없어요. <b class="ddc-c-blue">파란 번호</b> 6개만 기억해도 돼요.</p>
       <div id="ddc-fintro"></div>
+    </section>
+
+    <!-- ⑦ reasons -->
+    <section class="ddc-sec">
+      <h2 class="ddc-h2">사람들이 끝까지 보는 7가지 이유</h2>
+      <p class="ddc-lead">1초에 멈추게 하는 건 후킹이고, 끝까지 보게 하는 건 '이유'예요. 사람은 알고리즘이 아니라서, 볼 이유가 있어야 안 넘겨요.</p>
+      <ol class="ddc-why">
+        <li class="ddc-card"><span class="ddc-wno">1</span><div><b>궁금해서</b><p>답을 뒤에 둬요. 사람은 끝나지 않은 얘기를 못 참아요.</p><div class="ddc-vs"><span class="ddc-x">호주 워홀 꿀팁 5가지</span><span class="ddc-o">호주 워홀 꿀팁, 5번째는 아무도 안 알려줘요</span></div></div></li>
+        <li class="ddc-card"><span class="ddc-wno">2</span><div><b>내 얘기 같아서</b><p>누구 얘기인지 콕 집어요. 나를 부르면 손가락이 멈춰요.</p><div class="ddc-vs"><span class="ddc-x">피부 관리 루틴</span><span class="ddc-o">지성 피부면 이 순서부터 바꿔요</span></div></div></li>
+        <li class="ddc-card"><span class="ddc-wno">3</span><div><b>손해 볼까 봐</b><p>얻는 것보다 잃는 게 더 아파요. 안 보면 손해라는 느낌을 줘요.</p><div class="ddc-vs"><span class="ddc-x">이직 준비 팁</span><span class="ddc-o">이직할 때 이거 모르면 연봉 손해</span></div></div></li>
+        <li class="ddc-card"><span class="ddc-wno">4</span><div><b>믿을 만해서</b><p>'많이' 대신 숫자, '좋았다' 대신 장면. 구체적이면 믿고 봐요.</p><div class="ddc-vs"><span class="ddc-x">돈 많이 모았어요</span><span class="ddc-o">월급 250으로 1년에 1천만원</span></div></div></li>
+        <li class="ddc-card"><span class="ddc-wno">5</span><div><b>예상이 깨져서</b><p>다들 맞다는 걸 뒤집어요. "어? 왜?" 하는 순간 계속 봐요.</p><div class="ddc-vs"><span class="ddc-x">꾸준히 올리는 게 중요해요</span><span class="ddc-o">매일 올렸더니 팔로워가 줄었어요</span></div></div></li>
+        <li class="ddc-card"><span class="ddc-wno">6</span><div><b>끝에 받을 게 보여서</b><p>다 보면 뭘 얻는지 먼저 말해요. 보상이 보이면 기다려줘요.</p><div class="ddc-vs"><span class="ddc-x">오사카 여행 브이로그</span><span class="ddc-o">끝까지 보면 3박 4일 경비 다 나와요</span></div></div></li>
+        <li class="ddc-card"><span class="ddc-wno">7</span><div><b>사람이 보여서</b><p>정보보다 사람한테 끌려요. 내 표정, 내 실패를 보여줘요.</p><div class="ddc-vs"><span class="ddc-x">워홀 생활 기록</span><span class="ddc-o">워홀 3개월 차, 통장 보고 울었어요</span></div></div></li>
+      </ol>
     </section>
 
     <!-- ⑧ four elements -->
@@ -285,6 +336,18 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
         <li class="ddc-card"><span>3</span><b>첫 멘트</b><p>"안녕하세요"로 시작하면 끝이에요. 결론이나 감정부터 바로 던져요.</p></li>
         <li class="ddc-card"><span>4</span><b>캡션 첫 줄</b><p>영상 다 본 사람이 읽는 곳이에요. 다 말하지 말고 궁금하게 끊어요.</p></li>
       </ul>
+      <div class="ddc-card ddc-check">
+        <h3>올리기 전 <span class="ddc-c-blue">1초 체크</span></h3>
+        <p class="ddc-keep-lead">하나씩 눌러보세요. 5개 다 되면 올려도 돼요.</p>
+        <div id="ddc-checks">
+          <button type="button" class="ddc-ck" data-ck>첫 화면에 제일 센 장면이 있어요 (풍경 말고 사람이나 결과)</button>
+          <button type="button" class="ddc-ck" data-ck>화면 속 후킹이 15자 안이에요</button>
+          <button type="button" class="ddc-ck" data-ck>첫 마디가 "안녕하세요"가 아니에요</button>
+          <button type="button" class="ddc-ck" data-ck>답은 뒤에 숨겼어요</button>
+          <button type="button" class="ddc-ck" data-ck>끝까지 보면 뭘 얻는지 말했어요</button>
+        </div>
+        <p class="ddc-ck-done" id="ddc-ck-done">다 됐어요! 이제 올려요 🙌</p>
+      </div>
     </section>
 
     <!-- ⑨ promo -->
@@ -433,6 +496,28 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
   ];
 
   var PLACES = ['뉴질랜드', '아일랜드', '싱가포르', '말레이시아', '필리핀', '캐나다', '베트남', '스페인', '이탈리아', '프랑스', '독일', '영국', '미국', '호주', '일본', '대만', '태국', '중국', '홍콩', '유럽', '시드니', '멜버른', '브리즈번', '퍼스', '골드코스트', '애들레이드', '오클랜드', '퀸스타운', '웰링턴', '크라이스트처치', '밴쿠버', '토론토', '몬트리올', '도쿄', '오사카', '후쿠오카', '교토', '삿포로', '오키나와', '런던', '더블린', '파리', '베를린', '뉴욕', '하와이', 'LA', '방콕', '치앙마이', '다낭', '나트랑', '하노이', '호치민', '발리', '세부', '타이베이', '제주도', '제주', '부산', '서울', '성수동', '성수', '강남', '홍대'];
+
+  /* 후킹 뒤에 붙이는 한 줄 — 계속 볼 이유를 만들어요. {k} 주제어, {n} 나라 (없으면 자동으로 빠져요) */
+  var KEEP = [
+    ['궁금증', '3번째가 제일 중요해요'],
+    ['궁금증', '마지막 거 보고 저도 놀랐어요'],
+    ['궁금증', '근데 진짜 문제는 따로 있었어요'],
+    ['궁금증', '왜 그런지 끝에 말해드릴게요'],
+    ['약속', '끝까지 보면 {k} 비용 다 나와요'],
+    ['약속', '딱 30초면 돼요, 따라만 하세요'],
+    ['약속', '숫자로 다 보여드릴게요'],
+    ['약속', '저장해두면 나중에 꼭 써요'],
+    ['반전', '근데 결과는 정반대였어요'],
+    ['반전', '저도 처음엔 이게 맞는 줄 알았어요'],
+    ['반전', '다들 하는 방법, 사실 틀렸어요'],
+    ['공감', '저도 이거 몰라서 진짜 고생했어요'],
+    ['공감', '이거 보고 계신 분, 저랑 똑같죠?'],
+    ['공감', '처음엔 저도 울면서 했어요'],
+    ['손실', '이거 모르고 시작하면 돈 날려요'],
+    ['손실', '저처럼 시간 버리지 마세요'],
+    ['장면', '그날 {n} 공항에서 무슨 일이 있었냐면요'],
+    ['장면', '그 순간 머리가 하얘졌어요']
+  ];
 
   var TAG_LABEL = { '숫': '숫자', '반': '반전', '손': '손실', '공': '공감', '호': '호기심', '비': '비교', '권': '경험' };
   var DNA = ['숫', '반', '손'];
@@ -627,6 +712,21 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
     $('ddc-fintro').innerHTML = html + '</div>';
   }
 
+  function renderKeep(ctx) {
+    var seen = {}, picks = [];
+    shuffle(KEEP.slice()).forEach(function (x) {
+      if (picks.length >= 6 || seen[x[0]] >= 2) return;
+      var s = fill(x[1], ctx);
+      if (!s) return;
+      seen[x[0]] = (seen[x[0]] || 0) + 1;
+      picks.push([x[0], s]);
+    });
+    state.keep = picks;
+    $('ddc-keep').innerHTML = picks.map(function (x, i) {
+      return '<button type="button" class="ddc-kitem" data-keep="' + i + '"><span class="ddc-mini">' + esc(x[0]) + '</span><span>' + esc(x[1]) + '</span></button>';
+    }).join('');
+  }
+
   function renderCats() {
     $('ddc-cats').innerHTML = CATS.map(function (c) {
       return '<button type="button" class="ddc-chipbtn' + (c === state.cat ? ' is-on' : '') + '" data-cat="' + c.key + '">' + esc(c.name) + '</button>';
@@ -717,6 +817,7 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
       });
     });
     $('ddc-all').innerHTML = allHTML;
+    renderKeep(ctx);
 
     /* 상태 메시지 */
     if (isExample) {
@@ -785,8 +886,28 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
      이벤트
      ========================================================= */
   root.addEventListener('click', function (e) {
-    var el = e.target.closest ? e.target.closest('[data-cat],[data-target],[data-chip],[data-act],[data-scroll]') : null;
+    var el = e.target.closest ? e.target.closest('[data-cat],[data-target],[data-chip],[data-act],[data-scroll],[data-keep],[data-ck]') : null;
     if (!el || !root.contains(el)) return;
+
+    if (el.hasAttribute('data-ck')) {
+      el.classList.toggle('is-on');
+      $('ddc-ck-done').classList.toggle('is-on', root.querySelectorAll('.ddc-ck.is-on').length === root.querySelectorAll('.ddc-ck').length);
+      return;
+    }
+
+    if (el.hasAttribute('data-keep')) {
+      var kt = state.keep[+el.getAttribute('data-keep')][1], ks = el.lastChild;
+      var kdone = function () { el.classList.add('is-done'); ks.textContent = '복사됐어요!'; setTimeout(function () { el.classList.remove('is-done'); ks.textContent = kt; }, 1200); };
+      var kfall = function () {
+        var ta = document.createElement('textarea'); ta.value = kt; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        root.appendChild(ta); ta.select();
+        try { if (document.execCommand('copy')) kdone(); } catch (err) {}
+        root.removeChild(ta);
+      };
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(kt).then(kdone, kfall);
+      else kfall();
+      return;
+    }
 
     if (el.hasAttribute('data-scroll')) { e.preventDefault(); scrollToId(el.getAttribute('data-scroll')); return; }
 
