@@ -202,8 +202,8 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
     <section class="ddc-hero">
       <div class="ddc-hero-txt">
         <span class="ddc-pill">릴스 떡상 후킹 변환기</span>
-        <h1>넘겨지던 후킹,<br><span class="ddc-c-blue" style="white-space:nowrap">멈추게</span> 바꿔요</h1>
-        <p>릴스는 <b>1초</b> 만에 넘겨져요. 대충 쓴 후킹 하나 넣어보세요. <b>15공식</b>으로 뭐가 빠졌는지 짚고, 제일 센 것부터 <b>5개</b> 보여드릴게요.</p>
+        <h1>조회수 안 나오는 이유,<br><span class="ddc-c-blue" style="white-space:nowrap">첫 1초</span>예요</h1>
+        <p>영상 말고 <b>후킹 한 줄</b>만 바꿔보세요. 대충 쓴 후킹을 넣으면 <b>15공식</b>으로 뭐가 빠졌는지 짚고, 제일 센 것부터 <b>5개</b> 보여드릴게요.</p>
         <a class="ddc-cta" href="#ddc-tool" data-scroll="ddc-tool">내 후킹 넣어보기 ↓</a>
       </div>
     </section>
@@ -637,6 +637,7 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
     var c = state.cat;
     $('ddc-sit-label').textContent = c.field + ' (선택)';
     $('ddc-sit').placeholder = c.ph;
+    $('ddc-title').placeholder = '예) ' + c.chips[0];
     if (!state.target || c.targets.indexOf(state.target) < 0) state.target = '';
     $('ddc-targets').innerHTML = c.targets.map(function (t) {
       var on = state.target ? state.target === t : false;
@@ -719,7 +720,7 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
 
     /* 상태 메시지 */
     if (isExample) {
-      $('ddc-status').innerHTML = '<span class="ddc-pill">예시</span> \'' + esc(title) + '\'로 미리 돌려봤어요. 이제 내 후킹 넣어보세요.';
+      $('ddc-status').innerHTML = '<span class="ddc-pill">예시</span> \'' + esc(title) + '\'' + josa(title, '으로') + ' 미리 돌려봤어요. 이제 내 후킹 넣어보세요.';
     } else {
       state.userRan = true;
       var info = '주제어 <b>' + esc(k) + '</b>' +
@@ -794,7 +795,11 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
       for (var i = 0; i < CATS.length; i++) if (CATS[i].key === key) state.cat = CATS[i];
       renderCats();
       renderCatParts();
-      if (state.userRan && $('ddc-title').value.trim()) convert(false);
+      /* 비어 있거나 예시 후킹이면 이 카테고리 예시로 바꿔 보여줘요. 직접 쓴 후킹은 그대로 둬요 */
+      var cur = $('ddc-title').value.trim();
+      var isEx = !cur || CATS.some(function (c) { return c.chips.indexOf(cur) > -1; });
+      if (isEx) { $('ddc-title').value = state.cat.chips[0]; $('ddc-sit').value = ''; convert(true); }
+      else if (state.userRan) convert(false);
       return;
     }
 
