@@ -69,27 +69,6 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
 #ddc .ddc-fex{display:block;font-size:13px;color:var(--sub);line-height:1.45;}
 #ddc .ddc-fcat{display:inline-block;font-size:11px;font-weight:600;color:#8A99A8;border:1px solid var(--line);border-radius:99px;padding:0 6px;margin-left:4px;vertical-align:2px;white-space:nowrap;}
 #ddc .ddc-core{display:inline-block;margin-left:6px;font-size:11px;font-weight:700;color:#fff;background:var(--blue);border-radius:99px;padding:2px 7px;vertical-align:middle;}
-#ddc .ddc-h3{font-size:clamp(20px,3.4vw,24px);font-weight:700;letter-spacing:-.02em;margin:40px 0 8px;}
-#ddc .ddc-cands li{margin-bottom:8px;}
-#ddc .ddc-crow{display:grid;grid-template-columns:36px 1fr minmax(0,38%);gap:16px;align-items:center;width:100%;text-align:left;background:#fff!important;border:1px solid var(--line)!important;border-radius:12px;padding:14px 18px;transition:border-color .15s;}
-#ddc .ddc-crow:hover{border-color:var(--blue)!important;}
-#ddc .ddc-crow.is-done{background:#F1FAEC!important;border-color:#9BD37C!important;}
-#ddc .ddc-cno{width:30px;height:30px;border:1px solid var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;}
-#ddc .ddc-chook{font-size:16px;font-weight:700;line-height:1.5;color:var(--navy);}
-#ddc .ddc-chook .ddc-k{color:var(--blue-d);}
-#ddc .ddc-csrc{border-left:1px solid var(--line);padding-left:16px;font-size:12px;color:var(--sub);line-height:1.55;}
-#ddc .ddc-csrc b{color:var(--navy);font-weight:600;}
-#ddc .ddc-csrc i{display:block;color:#8A99A8;margin-top:2px;}
-#ddc .ddc-bank{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
-#ddc .ddc-bcard{display:flex;flex-direction:column;text-align:left;background:#fff!important;border:1px solid var(--line)!important;border-radius:12px;padding:18px 18px 16px;min-height:200px;transition:border-color .15s,transform .15s;}
-#ddc .ddc-bcard:hover{border-color:var(--blue)!important;transform:translateY(-2px);}
-#ddc .ddc-bstat{font-size:20px;font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:12px;color:#8A99A8;}
-#ddc .ddc-bstat b{color:#2563EB;font-weight:800;}
-#ddc .ddc-bstat .ddc-bmine{font-size:13px;color:var(--blue-d);background:var(--tint);border-radius:99px;padding:3px 9px;vertical-align:3px;}
-#ddc .ddc-bhook{font-size:17px;font-weight:800;line-height:1.45;color:var(--navy);letter-spacing:-.01em;margin-bottom:auto;}
-#ddc .ddc-slot{display:inline;color:#2563EB;background:#E8EFFE;border-radius:4px;padding:0 3px;font-weight:800;box-decoration-break:clone;-webkit-box-decoration-break:clone;}
-#ddc .ddc-borig{font-size:12px;color:#8A99A8;line-height:1.5;margin-top:14px;}
-#ddc .ddc-bcard.is-done .ddc-borig{color:var(--blue-d);font-weight:700;}
 #ddc .ddc-mini{font-size:12px;color:var(--blue-d);background:var(--tint);border-radius:99px;padding:3px 9px;font-weight:700;}
 
 /* steps */
@@ -189,14 +168,11 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
 #ddc .ddc-foot p{max-width:640px;}
 
 @media (max-width:720px){
-#ddc .ddc-bank{grid-template-columns:1fr 1fr;}
 #ddc .ddc-fcols{grid-template-columns:1fr;}
 #ddc .ddc-links{grid-template-columns:1fr;}
 #ddc .ddc-links a{min-height:0;}
 }
 @media (max-width:640px){
-#ddc .ddc-crow{grid-template-columns:30px 1fr;gap:10px 12px;padding:14px;}
-#ddc .ddc-csrc{grid-column:1 / -1;border-left:0;border-top:1px solid var(--line);padding:10px 0 0;}
 #ddc .ddc-cta{width:100%;justify-content:center;}
 #ddc .ddc-four{grid-template-columns:1fr 1fr;}
 #ddc .ddc-letter{padding:26px 22px;}
@@ -208,8 +184,6 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
 #ddc .ddc-promo{padding:30px 24px;}
 }
 @media (max-width:480px){
-#ddc .ddc-bank{grid-template-columns:1fr;}
-#ddc .ddc-bcard{min-height:0;}
 #ddc .ddc-hero{padding-top:36px;}
 #ddc .ddc-top .ddc-handle{font-size:12px;padding:5px 11px;}
 }
@@ -290,18 +264,8 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
       <h2 class="ddc-h2">가장 센 후킹 TOP 5</h2>
       <p class="ddc-lead">숫자·반전·손실이 많이 들어간 순서예요. 별로면 [다른 문장 →]으로 넘겨보세요. 그대로 쓰는 것보다 두세 개 섞어 쓰면 더 좋아요.</p>
       <div id="ddc-top"></div>
-      <h3 class="ddc-h3">훅 후보 10개</h3>
-      <p class="ddc-lead">실제로 터진 후킹 틀에 내 주제를 넣어봤어요. 말로 하는 첫 멘트나 캡션 첫 줄에 쓰기 좋아요. <span class="ddc-slot">[ ]</span> 칸은 직접 채워주세요.</p>
-      <ol class="ddc-cands" id="ddc-cands"></ol>
       <button class="ddc-toggle" id="ddc-toggle" type="button" aria-expanded="false">15공식 전체 보기 ▾</button>
       <div class="ddc-all" id="ddc-all"></div>
-    </section>
-
-    <!-- ④ hook bank -->
-    <section class="ddc-sec">
-      <h2 class="ddc-h2">훅 뱅크</h2>
-      <p class="ddc-lead">실제로 터진 릴스 후킹이에요. 카드 위 숫자는 <b>조회수</b>, 그리고 그 계정 <b class="ddc-c-blue">평소 조회수의 몇 배</b>인지예요. <span class="ddc-slot">[ ]</span> 칸만 내 걸로 바꿔 쓰면 되고, 누르면 복사돼요.</p>
-      <div class="ddc-bank" id="ddc-bank"></div>
     </section>
 
     <!-- ⑤ formulas -->
@@ -370,33 +334,33 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
     { id: 1, g: 'A', name: '대상 호명형', tags: ['공', '호'], desc: "'~라면'으로 콕 집어 부르면 그 사람은 멈춰요.", ex: '자취생, 이거 사지 마요', c: '요리',
       t: ['{t:이라면} 이거 꼭 봐요', '{k} 준비 중? 이것부터', '{k} 처음이면 이것만', '{t:이라면} 저장해요', '{t}분들, 이거 아셨어요?', '{n} 가기 전이면 봐요', '{t:이라면} 모르면 손해'] },
     { id: 2, g: 'A', name: '후회·손실회피형', core: true, tags: [], desc: "사람은 얻는 것보다 잃는 게 더 아파요. 손해부터 꺼내요.", ex: '이 세제, 세탁기 망가져요', c: '살림',
-      t: ['{k} 끝나면 남는 건?', '{k}, 이러면 다 날려요', '{k}, 모르면 {w} 손해', '@{k} 제일 후회한 것', '{k} 함정, 저도 빠졌어요', '{k} 최악의 실수', '미리 알았으면 한 {k}'] },
+      t: ['{k} 끝나면 남는 건?', '{k}, 이러면 다 날려요', '{k}, 모르면 {w} 손해', '@{k} 제일 후회한 것', '{k} 함정, 저도 빠졌어요', '{k} 최악의 실수', '미리 알았으면 한 {k}', '{k}, 이거 모르면 시간만 태워요', '{k} 이렇게 하면 시간 낭비예요', '{k} 이렇게 하는 분들, 돈 새요'] },
     { id: 3, g: 'A', name: '1위·랭킹형', tags: [], desc: "1위라고 하면 '내가 하는 건가?' 싶어서 끝까지 봐요.", ex: '월급 안 모이는 이유 1위', c: '재테크',
-      t: ['{k}, {t} 후회 1위', '{t:이} 제일 후회하는 것 1위', '{k} 실수 1위', '{t} 99%가 놓치는 것', '{k} 제일 아까운 것 1위', '{k} 만족도 1위, 의외예요'] },
+      t: ['{k}, {t} 후회 1위', '{t:이} 제일 후회하는 것 1위', '{k} 실수 1위', '{t} 99%가 놓치는 것', '{k} 제일 아까운 것 1위', '{k} 만족도 1위, 의외예요', '{k} 다녀온 사람 후회 1위'] },
     { id: 4, g: 'A', name: '숫자형', core: true, tags: [], desc: "'많이' 말고 '3주, 5kg'. 숫자가 보이면 바로 믿어요.", ex: '저녁만 바꿨더니 -5kg', c: '다이어트',
-      t: ['{d} 만에 {g}', '{d} 만에 {g}, 이것만 했어요', '{k}, 딱 3개만 기억해요', '{w:으로} 끝낸 {k}', '{k} 하루 10분이면 돼요', '{k}에 {w} 쓰고 깨달은 것', '{k} 3단계면 끝'] },
+      t: ['{d} 만에 {g}', '{d} 만에 {g}, 이것만 했어요', '{k}, 딱 3개만 기억해요', '{w:으로} 끝낸 {k}', '{k} 하루 10분이면 돼요', '{k}에 {w} 쓰고 깨달은 것', '{k} 3단계면 끝', '작정하고 푸는 {k} 3가지', '이거 하나면 {k} 바로 끝', '{k}, 하루 만에 세팅하는 법', '{n}에서 한 달에 {w} 버는 법'] },
     { id: 5, g: 'A', name: '시간압박형', tags: [], desc: "'지금 안 보면 늦는다' 싶어야 저장까지 해요.", ex: '12월 전에 이력서 고치세요', c: '커리어',
       t: ['{k} 전에 이것부터', '지금 안 하면 늦는 {k}', '{k}, 미루면 늦어요', '{k} 전 마지막 체크', '다음 달이면 늦는 {k}'] },
     { id: 6, g: 'B', name: '반전형', tags: ['호'], desc: "'~인 줄 알았는데' 하면 결말이 궁금해서 못 넘겨요.", ex: '비싼 크림 끊고 피부 폈어요', c: '뷰티',
-      t: ['{k:이} 쉬운 줄 알았죠?', '@{k} 했더니 생긴 일', '다들 말린 {k}, 해보니', '{k:은} 돈 문제가 아니었어요', '{k}, 망한 줄 알았는데요', '{k}, 제가 틀렸어요'] },
+      t: ['{k:이} 쉬운 줄 알았죠?', '@{k} 했더니 생긴 일', '다들 말린 {k}, 해보니', '{k:은} 돈 문제가 아니었어요', '{k}, 망한 줄 알았는데요', '{k}, 제가 틀렸어요', '대충 해도 {k}, 이제 돼요'] },
     { id: 7, g: 'B', name: '통념 깨기형', core: true, tags: ['호'], desc: "다들 맞다는 걸 아니라고 하면 일단 멈춰요.", ex: '매일 올리면 망해요', c: 'SNS',
-      t: ['{k}만 하면 망해요', '열심히 할수록 망하는 {k}', '다들 하는 {k}, 틀렸어요', '{k:은} 운이 아니에요', '{k}, 저는 반대로 했어요', '남들 따라 하면 망하는 {k}'] },
+      t: ['{k}만 하면 망해요', '열심히 할수록 망하는 {k}', '다들 하는 {k}, 틀렸어요', '{k:은} 운이 아니에요', '{k}, 저는 반대로 했어요', '남들 따라 하면 망하는 {k}', '비싼 강의 없이 {k} 배운 법'] },
     { id: 8, g: 'B', name: '비교형', core: true, tags: ['비'], desc: "둘을 나란히 두면 설명 안 해도 차이가 보여요.", ex: '오사카 50만원 vs 150만원', c: '여행',
       t: ['{k} 기대 vs 현실', '한국 vs {n}, {k}', '{k} 첫 달 vs {d} 후', '{k} 잘되는 사람 한 끗', '{k} 전 vs 후'] },
     { id: 9, g: 'B', name: '비밀공유형', tags: ['호'], desc: "'아무도 안 알려주는'이 붙으면 나만 모를까 봐 봐요.", ex: '옷잘알은 이거 안 사요', c: '패션',
-      t: ['{k}, 아무도 안 알려줘요', '{t}끼리만 아는 비밀', '저만 알고 싶던 {k}', '{k} 고수들은 말 안 해요', '@{k} 해본 사람만 아는 것'] },
+      t: ['{k}, 아무도 안 알려줘요', '{t}끼리만 아는 비밀', '저만 알고 싶던 {k}', '{k} 고수들은 말 안 해요', '@{k} 해본 사람만 아는 것', '나 {k}인데, 이거 모르면 손해야', '{k}, 이거 알고 계셨어요?'] },
     { id: 10, g: 'B', name: '근황형', tags: ['호'], desc: "'요즘'이 붙으면 지금 안 보면 뒤처질 것 같아요.", ex: '요즘 호주 항공권 이상해요', c: '해외생활',
-      t: ['요즘 {k} 이상해요', '요즘 {n} 근황', '요즘 {n} {k} 근황', '{k}, 지금 실화예요?', '요즘 {k}, 완전 달라졌어요', '요즘 {k:은} 이렇게 해요'] },
+      t: ['요즘 {k} 이상해요', '요즘 {n} 근황', '요즘 {n} {k} 근황', '{k}, 지금 실화예요?', '요즘 {k}, 완전 달라졌어요', '요즘 {k:은} 이렇게 해요', '요즘 유행하는 {k}, 알아요?'] },
     { id: 11, g: 'C', name: '경험형', core: true, tags: ['권'], desc: "'__'엔 내 진짜 숫자를 넣어요. 지어내면 바로 티 나요.", ex: '스토어 __년, 접은 이유', c: '부업',
       t: ['{k} __년 차의 결론', '{k} __년, 깨달은 것', '{k} __번 하고 안 것', '{k} __개월 차 현실', '{k}, 안 해본 사람 말 걸러요'] },
     { id: 12, g: 'C', name: '비포애프터형', tags: ['공'], desc: "바닥에서 시작한 얘기일수록 '나도 될까?' 싶어져요.", ex: '영어 0점, 외국 회사 붙음', c: '공부',
-      t: ['{k} 0에서 {g}까지', '{k} 몰랐던 제가 {d} 만에', '@{k} 꼴찌였던 제가', '{d} 전 vs 지금, {k}'] },
+      t: ['{k} 0에서 {g}까지', '{k} 몰랐던 제가 {d} 만에', '@{k} 꼴찌였던 제가', '{d} 전 vs 지금, {k}', '{k:을} 기회로 만드는 법', '평범한 {t:이} {k} 해낸 비결'] },
     { id: 13, g: 'C', name: '공감형', core: true, tags: ['공'], desc: "'어, 이거 난데?' 싶으면 댓글이 달려요.", ex: '애 재우고 운 적 있죠?', c: '육아',
       t: ['{k}, 저만 이래요?', '@{k} 하다 현타 온 날', '@{k} 제일 서러웠던 날', '{k}, 저만 힘들어요?', '{k} 때문에 운 밤', '솔직히 {k} 힘들어요'] },
     { id: 14, g: 'C', name: '상황묘사형', tags: ['공', '호'], desc: "감정을 말하지 말고 장면 하나를 보여줘요.", ex: '퇴사 말한 날, 팀장 표정', c: '내 이야기',
       t: ['{k} 첫날, 제일 당황', '@{k} 하다 멈칫한 순간', '{k} 중 제일 웃긴 순간', '{k}, 포기할 뻔한 장면', '{k} 첫 달, 통장 보고 멈칫', '{n} 첫날 제일 당황한 것'] },
     { id: 15, g: 'C', name: '다정한 제안형', tags: ['공'], desc: "가르치지 말고 친한 언니처럼 툭 권해요.", ex: '첫 데이트면 이 말만 참아요', c: '연애',
-      t: ['{t:이라면} 이것만 챙겨요', '{k} 처음이면 이렇게 해요', '{t}에게 해주고 싶은 말', '{k} 지친 분께', '{k} 막막하면 이것만'] }
+      t: ['{t:이라면} 이것만 챙겨요', '{k} 처음이면 이렇게 해요', '{t}에게 해주고 싶은 말', '{k} 지친 분께', '{k} 막막하면 이것만', '이번엔 {k}, 제대로 알려드릴게요'] }
   ];
 
   var GROUPS = {
@@ -449,7 +413,7 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
     { d: '3개월', g: '월 100만원', key: 'sidejob', name: '부업·사업', field: '업종', ph: '예) 온라인 스토어', p: '3개월', m: '월 100만원',
       targets: ['직장인', '1인 사업자', '사장님', '주부'],
       chips: ['부업 시작하는 방법', '창업 아이템 추천', '1인 사업 일상'],
-      t: [[2, '부업 이렇게 하면 손해'], [3, '{t} 부업 실수 1위'], [4, '{p} 만에 {m}'], [7, '아이템보다 중요한 것'], [8, '돈 되는 부업 vs 시간 낭비'], [12, '퇴근 후 0원에서 {m}'], [13, '부업 접고 싶던 날']] },
+      t: [[4, '방에서 한 달에 {m} 버는 법'], [2, '부업 이렇게 하면 손해'], [3, '{t} 부업 실수 1위'], [4, '{p} 만에 {m}'], [7, '아이템보다 중요한 것'], [8, '돈 되는 부업 vs 시간 낭비'], [12, '퇴근 후 0원에서 {m}'], [13, '부업 접고 싶던 날']] },
     { d: '3개월', key: 'study', name: '공부·영어', field: '목표', ph: '예) 토익 800', p: '3개월', m: '하루 20분',
       targets: ['직장인', '학생', '왕초보', '유학 준비생'],
       chips: ['영어 공부하는 방법', '단어 암기 팁', '공부 기록 브이로그'],
@@ -469,27 +433,6 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
   ];
 
   var PLACES = ['뉴질랜드', '아일랜드', '싱가포르', '말레이시아', '필리핀', '캐나다', '베트남', '스페인', '이탈리아', '프랑스', '독일', '영국', '미국', '호주', '일본', '대만', '태국', '중국', '홍콩', '유럽', '시드니', '멜버른', '브리즈번', '퍼스', '골드코스트', '애들레이드', '오클랜드', '퀸스타운', '웰링턴', '크라이스트처치', '밴쿠버', '토론토', '몬트리올', '도쿄', '오사카', '후쿠오카', '교토', '삿포로', '오키나와', '런던', '더블린', '파리', '베를린', '뉴욕', '하와이', 'LA', '방콕', '치앙마이', '다낭', '나트랑', '하노이', '호치민', '발리', '세부', '타이베이', '제주도', '제주', '부산', '서울', '성수동', '성수', '강남', '홍대'];
-
-  /* 훅 뱅크 — v: 조회수, x: 평소 조회수의 몇 배 (모르면 비워두세요), h: [빈칸] 템플릿, o: 원문, mine: 도행러 계정 */
-  var BANK = [
-    { v: '349만', x: '59.2배', h: '[대상] 퇴사 후 [플랫폼] [숫자] 될 수 있었던 비결', o: '춤추던 교사 퇴사 후 인스타 20만 될 수 있었던 비결' },
-    { who: '@hoon2trip', v: '286만', x: '119배', h: '요즘 유행하는 [결과물] 만드는 법 알고 있었어?', o: '요즘 유행하는 커피 소샵 만드는 법 알고 있었어?' },
-    { v: '158만', x: '7배', h: '나 [도구]인데 이 비밀 코드 [숫자]개 사용하면 [도구]보다 내가 훨씬 똑똑하거든?', o: '나 제미나이인데 이 비밀 코드 3개 사용하면 GPT보다 내가 훨씬 똑똑하거든?' },
-    { who: '@hongik.man', v: '95만', x: '43.2배', h: '[도구]에 [파일] 그냥 업로드하고 계신다면 지금 [자원] 엄청 낭비하고 있는 겁니다.', o: '클로드에 PDF 그냥 업로드하고 계신다면 지금 토큰 엄청 낭비하고 있는 겁니다.' },
-    { who: '@ai.injae', v: '77만', x: '247.6배', h: '[회사]이 작정하고 무료로 푼 도구 [숫자]가지 지금 공개합니다.', o: '구글이 작정하고 무료로 푼 도구 7가지 지금 공개합니다.' },
-    { who: '@hongik.man', v: '65만', x: '31.1배', h: '이번엔 [도구]로 [결과] 만드는 방법 알려드릴게요.', o: '이번엔 클로드 코워크로 AI 직원 만드는 방법 알려드릴게요.' },
-    { v: '60만', x: '138.7배', h: '[장소]에서 한 달에 [금액] 버는 방법', o: '방안에서 한 달에 1만 달러 버는 방법' },
-    { v: '60만', x: '19.6배', h: '진짜 [기기]로 대충 찍은 사진도 이제 [결과물]으로 만들 수 있습니다.', o: '진짜 폰카로 대충 찍은 사진도 이제 하이엔드급 제품 사진으로 만들 수 있습니다.' },
-    { who: '@unibrain.ai', v: '33.5만', x: '17배', h: '[도구]로 [서비스]나 비싼 [강의] 없이도 새로운 [분야] 효율적으로 배우는 법 알려드릴게요.' },
-    { who: '@reelsner', v: '28.1만', x: '36배', h: '[도구]에 [파일] 그대로 올리시는 분들 [자원]이 줄줄 샙니다.' },
-    { who: '@cutoven.ai', v: '18.4만', x: '24배', h: '나 [빈칸]인데 이거 모르면 [자원]만 태우는 거야.' },
-    { who: '@lets_yun2', v: '15.5만', x: '8배', h: '이 프롬프트 하나면 [플랫폼] 감성 [결과물] 바로 나옵니다.' },
-    { who: '@markppark_', v: '14만', x: '17배', h: '[도구] [기간]만에 세팅하는 방법 알려드릴게요.' },
-    { who: '@designer_keyyy', v: '13.7만', x: '7배', h: '이제 [도구]이 자동으로 일하게 할 수 있는 거 알고 계셨나요?' },
-    { mine: true, h: '[경험] 다녀온 사람이 가장 후회하는 것 1위', o: '워홀 다녀온 사람이 가장 후회하는 것 1위' },
-    { mine: true, h: '[경험]을 기회로 만드는 법', o: '워홀을 기회로 만드는 법' },
-    { mine: true, h: '요즘 어딘가 이상한 [나라] [물건] 가격근황', o: '요즘 어딘가 이상한 호주 항공권 가격근황' }
-  ];
 
   var TAG_LABEL = { '숫': '숫자', '반': '반전', '손': '손실', '공': '공감', '호': '호기심', '비': '비교', '권': '경험' };
   var DNA = ['숫', '반', '손'];
@@ -684,61 +627,6 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
     $('ddc-fintro').innerHTML = html + '</div>';
   }
 
-  function renderBank() {
-    $('ddc-bank').innerHTML = BANK.map(function (b, i) {
-      var stat = b.v
-        ? esc(b.v) + ' <b>' + esc(b.x || '') + '</b>'
-        : '<span class="ddc-bmine">도행러 계정</span>';
-      return '<button type="button" class="ddc-bcard" data-bank="' + i + '">' +
-        '<span class="ddc-bstat">' + stat + '</span>' +
-        '<span class="ddc-bhook">' + esc(b.h).replace(/\[([^\]]+)\]/g, '<span class="ddc-slot">[$1]</span>') + '</span>' +
-        '<span class="ddc-borig">' + (b.who ? esc(b.who) + (b.o ? ' · ' : '') : '') + (b.o ? '원문: ' + esc(b.o) : '') + '</span></button>';
-    }).join('');
-  }
-
-  var SLOT_MAP = { '대상': 't', '나라': 'n', '장소': 'n', '금액': 'w', '기간': 'p' };
-  var SLOT_FIX = { '플랫폼': '인스타', '자원': '시간' };
-  var SLOT_TOPIC = ['결과물', '결과', '경험', '분야', '빈칸'];
-  var JOSA_NORM = { '이': '이', '가': '이', '을': '을', '를': '을', '은': '은', '는': '은', '으로': '으로', '로': '으로', '과': '과', '와': '과' };
-
-  function fillHook(h, ctx) {
-    var usedTopic = false, plain = '', html = '', filled = 0;
-    h.replace(/\[([^\]]+)\](으로|이|가|을|를|은|는|로|과|와)?|([^\[]+)/g, function (all, slot, j, text) {
-      if (text) { plain += text; html += esc(text); return all; }
-      var val = '';
-      if (SLOT_MAP[slot]) val = ctx[SLOT_MAP[slot]] || '';
-      else if (SLOT_FIX[slot]) val = SLOT_FIX[slot];
-      else if (SLOT_TOPIC.indexOf(slot) > -1 && !usedTopic) { val = ctx.k; usedTopic = true; }
-      if (val) {
-        filled++;
-        var tail = j ? josa(val, JOSA_NORM[j]) : '';
-        plain += val + tail;
-        html += '<span class="ddc-k">' + esc(val) + '</span>' + esc(tail);
-      } else {
-        plain += '[' + slot + ']' + (j || '');
-        html += '<span class="ddc-slot">[' + esc(slot) + ']</span>' + esc(j || '');
-      }
-      return all;
-    });
-    return { plain: plain, html: html, filled: filled };
-  }
-
-  function renderCands(ctx) {
-    var list = BANK.map(function (b, i) { return { b: b, f: fillHook(b.h, ctx), i: i }; })
-      .sort(function (a, c) { return (c.f.filled - a.f.filled) || ((c.b.mine ? 999 : parseFloat(c.b.x) || 0) - (a.b.mine ? 999 : parseFloat(a.b.x) || 0)); })
-      .slice(0, 10);
-    state.cands = [];
-    $('ddc-cands').innerHTML = list.map(function (o, i) {
-      var b = o.b, f = o.f;
-      state.cands.push(f.plain);
-      return '<li><button type="button" class="ddc-crow" data-cand="' + i + '">' +
-        '<span class="ddc-cno">' + (i + 1) + '</span>' +
-        '<span class="ddc-chook">' + f.html + '</span>' +
-        '<span class="ddc-csrc">✓ ' + (b.mine ? '<b>도행러 계정</b>' : (b.who ? '<b>' + esc(b.who) + '</b> · ' : '') + '조회 ' + esc(b.v) + ' · 평소의 ' + esc(b.x)) +
-        '<i>«' + esc(b.h) + '»</i><span class="ddc-borig"></span></span></button></li>';
-    }).join('');
-  }
-
   function renderCats() {
     $('ddc-cats').innerHTML = CATS.map(function (c) {
       return '<button type="button" class="ddc-chipbtn' + (c === state.cat ? ' is-on' : '') + '" data-cat="' + c.key + '">' + esc(c.name) + '</button>';
@@ -828,7 +716,6 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
       });
     });
     $('ddc-all').innerHTML = allHTML;
-    renderCands(ctx);
 
     /* 상태 메시지 */
     if (isExample) {
@@ -897,26 +784,8 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
      이벤트
      ========================================================= */
   root.addEventListener('click', function (e) {
-    var el = e.target.closest ? e.target.closest('[data-cat],[data-target],[data-chip],[data-act],[data-scroll],[data-bank],[data-cand]') : null;
+    var el = e.target.closest ? e.target.closest('[data-cat],[data-target],[data-chip],[data-act],[data-scroll]') : null;
     if (!el || !root.contains(el)) return;
-
-    if (el.hasAttribute('data-bank') || el.hasAttribute('data-cand')) {
-      var bk = el.hasAttribute('data-bank') ? { h: BANK[+el.getAttribute('data-bank')].h } : { h: state.cands[+el.getAttribute('data-cand')] }, orig = el.querySelector('.ddc-borig');
-      var bdone = function () {
-        var prev = orig.textContent;
-        el.classList.add('is-done'); orig.textContent = '복사됐어요!';
-        setTimeout(function () { el.classList.remove('is-done'); orig.textContent = prev; }, 1500);
-      };
-      var bfall = function () {
-        var ta = document.createElement('textarea'); ta.value = bk.h; ta.style.position = 'fixed'; ta.style.opacity = '0';
-        root.appendChild(ta); ta.select();
-        try { if (document.execCommand('copy')) bdone(); } catch (err) {}
-        root.removeChild(ta);
-      };
-      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(bk.h).then(bdone, bfall);
-      else bfall();
-      return;
-    }
 
     if (el.hasAttribute('data-scroll')) { e.preventDefault(); scrollToId(el.getAttribute('data-scroll')); return; }
 
@@ -961,7 +830,6 @@ background:var(--bg);color:var(--navy);font-size:15px;line-height:1.65;word-brea
 
   /* 시작 — 예시 결과 미리 보여주기 */
   renderFormulaIntro();
-  renderBank();
   renderCats();
   renderCatParts();
   $('ddc-title').value = '호주 워홀 브이로그';
